@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>vi和vim的基本介绍 | Hexo</title>
+  <meta name="description" content="vi和vim的基本介绍  是什么 VI 是Unix操作系统和类Unix操作系统中最通用的文本编译器。 VIM 编译器是从VI 编译器发展出来一个性能更强大的文本编译器，可以主动的以字体颜色辨别语法的正确性，方便程序设计。  Vim的安装  centos系统： 普通用户下输入命令：yum -y install vim* ubuntu系统： 普通用户下输入命令：sudo apt-get insta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vi和vim的基本介绍">
+<meta property="og:url" content="http://yoursite.com/2020/05/01/vi%E5%92%8Cvim%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="COFFEECODE">
+<meta property="og:description" content="vi和vim的基本介绍  是什么 VI 是Unix操作系统和类Unix操作系统中最通用的文本编译器。 VIM 编译器是从VI 编译器发展出来一个性能更强大的文本编译器，可以主动的以字体颜色辨别语法的正确性，方便程序设计。  Vim的安装  centos系统： 普通用户下输入命令：yum -y install vim* ubuntu系统： 普通用户下输入命令：sudo apt-get insta">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200304153530583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTk0MjM0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200304144532694.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTk0MjM0,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200304151027994.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200304151042632.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200304151100874.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200304152444296.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTk0MjM0,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-05-01T15:27:06.000Z">
+<meta property="article:modified_time" content="2020-05-01T15:33:05.571Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Liunx">
+<meta property="article:tag" content="编辑器">
+<meta property="article:tag" content="Vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200304153530583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTk0MjM0,size_16,color_FFFFFF,t_70">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2020/05/01/vi%E5%92%8Cvim%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="COFFEECODE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/TaoLiuHK" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">CoffeeCode</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer &amp; BigData</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> ChangShao, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon fa-dashboard"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon fa-delicious"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon fa-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon fa-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon fa-code"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon fa-leanpub"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon fa-gg"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon fa-coffee"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/TaoLiuHK" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/Vim/">Vim</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">网络配置</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/Mybatis/">Mybatis</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/Mybatis/SSM/">SSM</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/">SSM</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/Spring/">Spring</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7/">项目工具</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liunx/" rel="tag">Liunx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSM/" rel="tag">SSM</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" rel="tag">编辑器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" rel="tag">网络配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Linux/" style="font-size: 13.67px;">Linux</a> <a href="/tags/Liunx/" style="font-size: 13px;">Liunx</a> <a href="/tags/Mybatis/" style="font-size: 13px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 13.67px;">SSM</a> <a href="/tags/Spring/" style="font-size: 13.33px;">Spring</a> <a href="/tags/Vim/" style="font-size: 13px;">Vim</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 13px;">编辑器</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" style="font-size: 13px;">网络配置</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 13px;">虚拟机</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">13</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/">SSM</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/01/Spring-%E8%A3%85%E9%85%8DSpring-Bean-%E9%80%9A%E8%BF%87%E6%B3%A8%E8%A7%A3%EF%BC%88%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D-Autowired%EF%BC%89/" class="title">Spring - 装配Spring Bean-通过注解（自动装配-@Autowired）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-01T15:56:58.000Z" itemprop="datePublished">2020-05-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/">SSM</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/01/Spring-%E8%A3%85%E9%85%8DSpring-Bean-%E9%80%9A%E8%BF%87%E6%B3%A8%E8%A7%A3%EF%BC%88%E7%BB%84%E4%BB%B6%E6%89%AB%E6%8F%8F%EF%BC%89/" class="title">Spring - 装配Spring Bean-通过注解（组件扫描）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-01T15:54:58.000Z" itemprop="datePublished">2020-05-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/Mybatis/">Mybatis</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/01/Mybatis%E4%B8%AD%E7%9A%843%E7%A7%8D%E7%BA%A7%E8%81%94%E6%96%B9%E5%BC%8F/" class="title">Mybatis中的3种级联方式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-01T15:50:16.000Z" itemprop="datePublished">2020-05-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Linux/">Linux</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/01/Linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" class="title">Linux文件与目录结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-01T15:40:06.000Z" itemprop="datePublished">2020-05-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Linux/">Linux</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/01/vi%E5%92%8Cvim%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="title">vi和vim的基本介绍</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-01T15:27:06.000Z" itemprop="datePublished">2020-05-01</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-vi和vim的基本介绍" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vi和vim的基本介绍
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/05/01/vi%E5%92%8Cvim%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="article-date">
+	  <time datetime="2020-05-01T15:27:06.000Z" itemprop="datePublished">2020-05-01</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a>►<a class="article-category-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/Vim/">Vim</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Liunx/" rel="tag">Liunx</a>, <a class="article-tag-link" href="/tags/Vim/" rel="tag">Vim</a>, <a class="article-tag-link" href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" rel="tag">编辑器</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/01/vi%E5%92%8Cvim%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <hr />
+<h1 id="vi和vim的基本介绍"><a class="markdownIt-Anchor" href="#vi和vim的基本介绍"></a> vi和vim的基本介绍</h1>
+<h2 id="是什么"><a class="markdownIt-Anchor" href="#是什么"></a> 是什么</h2>
+<p>VI 是Unix操作系统和类Unix操作系统中最通用的文本编译器。<br />
+VIM 编译器是从VI 编译器发展出来一个性能更强大的文本编译器，可以主动的以字体颜色辨别语法的正确性，方便程序设计。</p>
+<h2 id="vim的安装"><a class="markdownIt-Anchor" href="#vim的安装"></a> Vim的安装</h2>
+<blockquote>
+<p>centos系统：<br />
+普通用户下输入命令：<code>yum -y install vim*</code><br />
+ubuntu系统：<br />
+普通用户下输入命令：<code>sudo apt-get install vim-gtk</code><br />
+之后输入y，即可等待安装完成。</p>
+</blockquote>
+<p>输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># vim</span></span><br></pre></td></tr></table></figure>
+<p>显示</p>
+<!--StartFragment--><img src="https://img-blog.csdnimg.cn/20200304153530583.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTk0MjM0,size_16,color_FFFFFF,t_70"/><!--EndFragment-->
+<p>安装成功！！</p>
+<h2 id="vim"><a class="markdownIt-Anchor" href="#vim"></a> <a href="http://www.vim.org/" target="_blank" rel="noopener">VIM</a></h2>
+<p>Vim是从 vi 发展出来的一个文本编辑器。代码补完、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。<br />
+<a href="https://www.runoob.com/w3cnote/all-vim-cheatsheat.html" target="_blank" rel="noopener"><em>vim键盘图：</em></a></p>
+<!--StartFragment--><img src="https://img-blog.csdnimg.cn/20200304144532694.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTk0MjM0,size_16,color_FFFFFF,t_70"/><!--EndFragment-->
+<h2 id="vivim常用的三种模式"><a class="markdownIt-Anchor" href="#vivim常用的三种模式"></a> VI/Vim常用的三种模式</h2>
+<p>基本上 vi/vim 共分为三种模式，分别是<strong>命令模式（Command mode），编辑模式（Edit mode）和指令模式（Instruction mode）</strong>。 这三种模式的作用分别是：</p>
+<h4 id="命令模式"><a class="markdownIt-Anchor" href="#命令模式"></a> 命令模式：</h4>
+<blockquote>
+<p>以 VI/Vim 打开一个文件就直接进入<strong>一般模式</strong> 了（默认的模式），在该模式中可以使用『上下左右』按键来移动光标，也可以使用『删除字符（x/X)』和『删除整行（dd）』处理文本内容，同样也可以『复制（yy）』『粘贴（p）』『撤销上一步（u）』来处理你的文件数据。</p>
+</blockquote>
+<p>在命令模式中，输入『 <strong>: / ?</strong>』3个中的任何一个按钮，就可以将光标移动到最底下那一行。</p>
+<!--StartFragment--><img src="https://img-blog.csdnimg.cn/20200304151027994.png"/><!--EndFragment-->
+<!--StartFragment--><img src="https://img-blog.csdnimg.cn/20200304151042632.png"/><!--EndFragment-->
+<!--StartFragment--><img src="https://img-blog.csdnimg.cn/20200304151100874.png"/><!--EndFragment-->
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>yy</strong></td>
+<td>复制光标当前一行</td>
+</tr>
+<tr>
+<td>y数字y</td>
+<td>复制一段（从第几行到第几行）</td>
+</tr>
+<tr>
+<td><strong>p</strong></td>
+<td>箭头移动到目的行粘贴</td>
+</tr>
+<tr>
+<td><strong>u</strong></td>
+<td>撤销上一步</td>
+</tr>
+<tr>
+<td><strong>dd</strong></td>
+<td>删除光标当前行</td>
+</tr>
+<tr>
+<td>d数字d</td>
+<td>删除光标（含）后多少行</td>
+</tr>
+<tr>
+<td><strong>x</strong></td>
+<td>删除一个字母，相当于del，向后删</td>
+</tr>
+<tr>
+<td>X</td>
+<td>删除一个字母，相当于Backspace，向前删</td>
+</tr>
+<tr>
+<td>yw</td>
+<td>复制一个词</td>
+</tr>
+<tr>
+<td>dw</td>
+<td>删除一个词</td>
+</tr>
+<tr>
+<td>shift+^</td>
+<td>移动到行头</td>
+</tr>
+<tr>
+<td>shift+$</td>
+<td>移动到行尾</td>
+</tr>
+<tr>
+<td>gg或者1+G</td>
+<td>移动到页头</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到页尾</td>
+</tr>
+<tr>
+<td>数字+G</td>
+<td>（先输入数字，在按G）	移动到目标行</td>
+</tr>
+</tbody>
+</table>
+<h4 id="编辑模式"><a class="markdownIt-Anchor" href="#编辑模式"></a> 编辑模式：</h4>
+<blockquote>
+<p>在一般模式中可以进行删除、复制、粘贴等的动作，但是无法编辑文件内容！要等到你按下『i, I, o, O, a, A, r, R』等任何一个字母之后才会进入编辑模式。 注意了！通常在Linux中，按下这些按键时，在画面的左下方会出现『INSERT或 REPLACE』的字样，此时才可以进行编辑。而如果要回到一般模式时， 则必须要按下『Esc』这个按键即可退出编辑模式。</p>
+</blockquote>
+<p>进入编辑模式：</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>i</strong></td>
+<td>当前光标前</td>
+</tr>
+<tr>
+<td><strong>a</strong></td>
+<td>当前光标后</td>
+</tr>
+<tr>
+<td>o</td>
+<td>当前光标行的下一行</td>
+</tr>
+<tr>
+<td>I</td>
+<td>光标所在行最前</td>
+</tr>
+<tr>
+<td>A</td>
+<td>光标所在行最后</td>
+</tr>
+<tr>
+<td>O</td>
+<td>当前光标行的上一行</td>
+</tr>
+</tbody>
+</table>
+<p>退出编辑模式：<br />
+按『<strong>Esc</strong>』键</p>
+<h4 id="指令模式"><a class="markdownIt-Anchor" href="#指令模式"></a> 指令模式：</h4>
+<p>在这个模式当中， 可以提供你『搜寻资料』的动作，而读取、存盘、大量取代字符、离开 vi 、显示行号等动作是在此模式中达成的！</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:w</td>
+<td>保存文件</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出执行</td>
+</tr>
+<tr>
+<td>:!</td>
+<td>强制执行</td>
+</tr>
+<tr>
+<td>/ 要查找的词</td>
+<td><strong>n</strong> 查找下一个，<strong>N</strong> 往上查找</td>
+</tr>
+<tr>
+<td>? 要查找的词</td>
+<td><strong>n</strong>是查找上一个，<strong>N</strong>是往下查找</td>
+</tr>
+<tr>
+<td>:set nu</td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td>:set nonu</td>
+<td>关闭行号</td>
+</tr>
+<tr>
+<td>ZZ（shift+zz）</td>
+<td>没有修改文件直接退出，如果修改了文件保存后退出</td>
+</tr>
+</tbody>
+</table>
+<p>强制保存并退出：<br />
+<strong>：wq!</strong></p>
+<h4 id="模式之间的转换"><a class="markdownIt-Anchor" href="#模式之间的转换"></a> 模式之间的转换</h4>
+<h2 id="-startfragment-img-srchttpsimg-blogcsdnimgcn20200304152444296pngx-oss-processimagewatermarktype_zmfuz3pozw5nagvpdgkshadow_10text_ahr0chm6ly9ibg9nlmnzzg4ubmv0l3fxxzqwotk0mjm0size_16color_fffffft_70-endfragment-"><a class="markdownIt-Anchor" href="#-startfragment-img-srchttpsimg-blogcsdnimgcn20200304152444296pngx-oss-processimagewatermarktype_zmfuz3pozw5nagvpdgkshadow_10text_ahr0chm6ly9ibg9nlmnzzg4ubmv0l3fxxzqwotk0mjm0size_16color_fffffft_70-endfragment-"></a> <!--StartFragment--><img src="https://img-blog.csdnimg.cn/20200304152444296.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTk0MjM0,size_16,color_FFFFFF,t_70"/><!--EndFragment--></h2>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2020/05/01/vi%E5%92%8Cvim%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" title="vi和vim的基本介绍" target="_blank" rel="external">http://yoursite.com/2020/05/01/vi%E5%92%8Cvim%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/TaoLiuHK" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/TaoLiuHK" target="_blank"><span class="text-dark">CoffeeCode</span><small class="ml-1x">Web Developer &amp; Designer &amp; BigData</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="lv-container" data-id="city" data-uid="coffee">
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>    
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/05/01/Linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" title="Linux文件与目录结构"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/05/01/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%8B%E9%9A%86/" title="虚拟机克隆"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/TaoLiuHK" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -17,18 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>404 Not Found：该页无法显示 | CoffeeCode</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="404 Not Found：该页无法显示">
-<meta property="og:url" content="http://yoursite.com/404.html">
+  <title>Kafka API 同步发送 | CoffeeCode</title>
+  <meta name="description" content="Kafka API 同步发送  同步发送 同步发送的意思就是，一条消息发送之后，会阻塞当前线程，直至返回ack。 由于send方法返回的是一个Future对象，根据Futrue对象的特点，我们也可以实现同步发送的效果，只需在调用Future对象的get方发即可。   启动zookeeper和Kafka服务  123456789101112&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; hadoop141 jps">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka API 同步发送">
+<meta property="og:url" content="http://yoursite.com/2020/05/11/Kafka-API-%E5%90%8C%E6%AD%A5%E5%8F%91%E9%80%81/index.html">
 <meta property="og:site_name" content="COFFEECODE">
+<meta property="og:description" content="Kafka API 同步发送  同步发送 同步发送的意思就是，一条消息发送之后，会阻塞当前线程，直至返回ack。 由于send方法返回的是一个Future对象，根据Futrue对象的特点，我们也可以实现同步发送的效果，只需在调用Future对象的get方发即可。   启动zookeeper和Kafka服务  123456789101112&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; hadoop141 jps">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-01T05:55:46.977Z">
-<meta property="article:modified_time" content="2020-05-01T05:55:46.977Z">
+<meta property="article:published_time" content="2020-05-11T13:37:44.000Z">
+<meta property="article:modified_time" content="2020-05-11T13:56:30.380Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Kafka">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/404.html">
+  <link rel="canonical" href="http://yoursite.com/2020/05/11/Kafka-API-%E5%90%8C%E6%AD%A5%E5%8F%91%E9%80%81/index.html">
   
     <link rel="alternate" href="/atom.xml" title="COFFEECODE" type="application/atom+xml">
   
@@ -339,14 +342,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Kafka-API-同步发送" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      404 Not Found：该页无法显示
+      Kafka API 同步发送
     </h1>
   
 
@@ -354,23 +357,56 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/404.html" class="article-date">
-	  <time datetime="2020-05-01T05:55:46.977Z" itemprop="datePublished">2020-05-01</time>
+	<a href="/2020/05/11/Kafka-API-%E5%90%8C%E6%AD%A5%E5%8F%91%E9%80%81/" class="article-date">
+	  <time datetime="2020-05-11T13:37:44.000Z" itemprop="datePublished">2020-05-11</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>►<a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a>►<a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/Kafka/">Kafka</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Kafka/" rel="tag">Kafka</a>
+  </span>
+
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/404.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/11/Kafka-API-%E5%90%8C%E6%AD%A5%E5%8F%91%E9%80%81/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <script type="text/javascript" src="//www.qq.com/404/search_children.js" charset="utf-8" homePageUrl="<%- config.url %>" homePageName="回到我的主页"></script>
-
+        <hr />
+<h1 id="kafka-api-同步发送"><a class="markdownIt-Anchor" href="#kafka-api-同步发送"></a> Kafka API 同步发送</h1>
+<h2 id="同步发送"><a class="markdownIt-Anchor" href="#同步发送"></a> 同步发送</h2>
+<pre><code>同步发送的意思就是，一条消息发送之后，会阻塞当前线程，直至返回ack。
+由于send方法返回的是一个Future对象，根据Futrue对象的特点，我们也可以实现同步发送的效果，只需在调用Future对象的get方发即可。
+</code></pre>
+<ol>
+<li>启动zookeeper和Kafka服务</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">============= hadoop141 jps =============</span><br><span class="line">3218 Jps</span><br><span class="line">2538 QuorumPeerMain</span><br><span class="line">3180 Kafka</span><br><span class="line">============= hadoop142 jps =============</span><br><span class="line">3184 Jps</span><br><span class="line">3094 Kafka</span><br><span class="line">2490 QuorumPeerMain</span><br><span class="line">============= hadoop143 jps =============</span><br><span class="line">3193 Jps</span><br><span class="line">3100 Kafka</span><br><span class="line">2492 QuorumPeerMain</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>编写测试代码</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> codes.coffeecode.kafka.producer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.KafkaProducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.Producer;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.ProducerConfig;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.ProducerRecord;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutionException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 同步发送API</span></span><br><span class="line"><span class="comment"> * 同步发送的意思就是，一条消息发送之后，会阻塞当前线程，直至返回ack。</span></span><br><span class="line"><span class="comment"> * 由于send方法返回的是一个Future对象，根据Futrue对象的特点，我们也可以实现同步发送的效果，只需在调用Future对象的get方发即可。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SyncCustomProducer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ExecutionException, InterruptedException </span>&#123;</span><br><span class="line">        <span class="comment">//1. 创建Kafka生产者的配置信息</span></span><br><span class="line">        Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2. 指定连接的Kafka集群  broker-list</span></span><br><span class="line">        <span class="comment">//ProducerConfig.BOOTSTRAP_SERVERS_CONFIG -- "bootstrap.servers"</span></span><br><span class="line">        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,<span class="string">"hadoop141:9092"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3. ACK应答级别</span></span><br><span class="line">        <span class="comment">//ProducerConfig.ACKS_CONFIG -- "acks"</span></span><br><span class="line">        properties.put(ProducerConfig.ACKS_CONFIG,<span class="string">"all"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4. 重试次数</span></span><br><span class="line">        <span class="comment">//ProducerConfig.RETRIES_CONFIG -- "retries"</span></span><br><span class="line">        properties.put(ProducerConfig.RETRIES_CONFIG,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//5. 批次大小 16k</span></span><br><span class="line">        properties.put(<span class="string">"batch.size"</span>,<span class="number">16384</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//6. 等待时间 1ms</span></span><br><span class="line">        properties.put(<span class="string">"linger.ms"</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//7. Record Accumulator 缓冲区大小 32M</span></span><br><span class="line">        properties.put(<span class="string">"buffer.memory"</span>, <span class="number">33554432</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//8. key、value的序列化类</span></span><br><span class="line">        properties.put(<span class="string">"key.serializer"</span>, <span class="string">"org.apache.kafka.common.serialization.StringSerializer"</span>);</span><br><span class="line">        properties.put(<span class="string">"value.serializer"</span>, <span class="string">"org.apache.kafka.common.serialization.StringSerializer"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//9. 创建生产者对象</span></span><br><span class="line">        Producer&lt;String,String&gt; producer = <span class="keyword">new</span> KafkaProducer&lt;String, String&gt;(properties);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//10. 发送数据</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span> ; i++)&#123;</span><br><span class="line">            producer.send(<span class="keyword">new</span> ProducerRecord&lt;String, String&gt;(<span class="string">"bigdata"</span>,<span class="string">"CustomProducer--"</span>+i)).get();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//11. 关闭资源</span></span><br><span class="line">        producer.close();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>启动<strong>bigdata</strong>消费者</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop141 kafka]<span class="comment"># bin/kafka-console-consumer.sh --bootstrap-server hadoop141:9092 --from-beginning --topic bigdata</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>运行程序<br />
+消费者显示结果：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CustomProducer--0</span><br><span class="line">CustomProducer--1</span><br><span class="line">CustomProducer--2</span><br><span class="line">CustomProducer--3</span><br><span class="line">CustomProducer--4</span><br><span class="line">CustomProducer--5</span><br><span class="line">CustomProducer--6</span><br><span class="line">CustomProducer--7</span><br><span class="line">CustomProducer--8</span><br><span class="line">CustomProducer--9</span><br></pre></td></tr></table></figure>
+<hr />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
     <div class="article-footer">
@@ -379,7 +415,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/404.html" title="404 Not Found：该页无法显示" target="_blank" rel="external">http://yoursite.com/404.html</a>
+      <a href="http://yoursite.com/2020/05/11/Kafka-API-%E5%90%8C%E6%AD%A5%E5%8F%91%E9%80%81/" title="Kafka API 同步发送" target="_blank" rel="external">http://yoursite.com/2020/05/11/Kafka-API-%E5%90%8C%E6%AD%A5%E5%8F%91%E9%80%81/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -410,12 +446,34 @@
   </article>
   
     
+  <section id="comments">
+  	
+      <div id="lv-container" data-id="city" data-uid="coffee">
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>    
+    
+  </section>
+
 
   
 </div>
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/05/11/Kafka-Consumer-API/" title="Kafka-Consumer-API"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/05/10/hexo-%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E6%8F%92%E4%BB%B6%EF%BC%9Ahexo-simple-mindmap/" title="hexo 思维导图插件：hexo-simple-mindmap"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
   
   <!-- Button trigger modal -->
@@ -530,6 +588,28 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+   
+
+
+
+
+   
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
 
 
 

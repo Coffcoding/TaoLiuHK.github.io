@@ -17,22 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Shell编程 | CoffeeCode</title>
-  <meta name="description" content="1. 统计根分区使用率使用if 12345678910111213#!&#x2F;bin&#x2F;bash#统计根分区使用率rate&#x3D;$(df -h | grep sda1 | awk &#39;&amp;#123;print $5&amp;#125;&#39; | cut -d &quot;%&quot; -f1)if [ $rate -ge 80 ]	#判断rate的值，如果大于等于80,则执行then程序	then		echo &quot;使用率达到80%！！！&quot;">
+  <title>HBase 安装 | CoffeeCode</title>
+  <meta name="description" content="HBase 安装   启动 zookeeper a. 进入 zookeeper 目录： &#x2F;opt&#x2F;module&#x2F;zookeeper-3.4.10 b. 启动 zookeeper 命令：  1bin&#x2F;zkServer.sh start   启动 Hadoop a. 进入 Hadoop 目录： &#x2F;opt&#x2F;module&#x2F;hadoop-2.7.2 b. 启动 DFS 命令：  1sbin&#x2F;start-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shell编程">
-<meta property="og:url" content="http://yoursite.com/2020/05/01/Shell%E7%BC%96%E7%A8%8B/index.html">
+<meta property="og:title" content="HBase 安装">
+<meta property="og:url" content="http://yoursite.com/2020/05/12/HBase-%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="COFFEECODE">
-<meta property="og:description" content="1. 统计根分区使用率使用if 12345678910111213#!&#x2F;bin&#x2F;bash#统计根分区使用率rate&#x3D;$(df -h | grep sda1 | awk &#39;&amp;#123;print $5&amp;#125;&#39; | cut -d &quot;%&quot; -f1)if [ $rate -ge 80 ]	#判断rate的值，如果大于等于80,则执行then程序	then		echo &quot;使用率达到80%！！！&quot;">
+<meta property="og:description" content="HBase 安装   启动 zookeeper a. 进入 zookeeper 目录： &#x2F;opt&#x2F;module&#x2F;zookeeper-3.4.10 b. 启动 zookeeper 命令：  1bin&#x2F;zkServer.sh start   启动 Hadoop a. 进入 Hadoop 目录： &#x2F;opt&#x2F;module&#x2F;hadoop-2.7.2 b. 启动 DFS 命令：  1sbin&#x2F;start-">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-01T10:20:37.000Z">
-<meta property="article:modified_time" content="2020-05-08T03:25:59.167Z">
+<meta property="article:published_time" content="2020-05-12T13:52:17.000Z">
+<meta property="article:modified_time" content="2020-05-12T14:23:03.049Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Shell脚本">
+<meta property="article:tag" content="HBase">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2020/05/01/Shell%E7%BC%96%E7%A8%8B/index.html">
+  <link rel="canonical" href="http://yoursite.com/2020/05/12/HBase-%E5%AE%89%E8%A3%85/index.html">
   
     <link rel="alternate" href="/atom.xml" title="COFFEECODE" type="application/atom+xml">
   
@@ -341,16 +340,25 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hbase-安装"><span class="toc-number">1.</span> <span class="toc-text"> HBase 安装</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Shell编程" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-HBase-安装" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Shell编程
+      HBase 安装
     </h1>
   
 
@@ -358,48 +366,93 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/05/01/Shell%E7%BC%96%E7%A8%8B/" class="article-date">
-	  <time datetime="2020-05-01T10:20:37.000Z" itemprop="datePublished">2020-05-01</time>
+	<a href="/2020/05/12/HBase-%E5%AE%89%E8%A3%85/" class="article-date">
+	  <time datetime="2020-05-12T13:52:17.000Z" itemprop="datePublished">2020-05-12</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/Shell%E8%84%9A%E6%9C%AC/">Shell脚本</a>
+    <a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>►<a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a>►<a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/HBase/">HBase</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="article-tag-link" href="/tags/Shell%E8%84%9A%E6%9C%AC/" rel="tag">Shell脚本</a>
+	<a class="article-tag-link" href="/tags/HBase/" rel="tag">HBase</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/01/Shell%E7%BC%96%E7%A8%8B/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/12/HBase-%E5%AE%89%E8%A3%85/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <hr />
-<h2 id="1-统计根分区使用率使用if"><a class="markdownIt-Anchor" href="#1-统计根分区使用率使用if"></a> 1. 统计根分区使用率使用if</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#统计根分区使用率</span></span><br><span class="line"></span><br><span class="line">rate=$(df -h | grep sda1 | awk <span class="string">'&#123;print $5&#125;'</span> | cut -d <span class="string">"%"</span> -f1)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$rate</span> -ge 80 ]</span><br><span class="line">	<span class="comment">#判断rate的值，如果大于等于80,则执行then程序</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"使用率达到80%！！！"</span> </span><br><span class="line">	<span class="comment">#打印警告信息</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"使用率：<span class="variable">$rate</span>."</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-<h2 id="2使用多分支把输出内容分别输出1号文件和2号文件"><a class="markdownIt-Anchor" href="#2使用多分支把输出内容分别输出1号文件和2号文件"></a> 2.使用多分支把输出内容分别输出1号文件和2号文件</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#统计根分区使用率</span></span><br><span class="line"></span><br><span class="line">rate=$(df -h | grep sda1 | awk <span class="string">'&#123;print $5&#125;'</span> | cut -d <span class="string">"%"</span> -f1)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$rate</span> -ge 80 ]</span><br><span class="line">	<span class="comment">#判断rate的值，如果大于等于80,则执行then程序</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"使用率达到80%！！！"</span>  &gt;&gt; caveat.txt</span><br><span class="line">	<span class="comment">#打印警告信息</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"使用率：<span class="variable">$rate</span>."</span> &gt;&gt; normal.txt</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-<h2 id="4判断用户输入的是什么文件"><a class="markdownIt-Anchor" href="#4判断用户输入的是什么文件"></a> 4.判断用户输入的是什么文件？</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#判断文件类型</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请你输入文件名："</span> file</span><br><span class="line"></span><br><span class="line"><span class="comment">#判断file变量是否为空</span></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">"file"</span> ]</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"错误，请重新输入。"</span></span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line"><span class="comment">#判断文件是否存在</span></span><br><span class="line"><span class="keyword">elif</span> [ ! -e <span class="string">"<span class="variable">$file</span>"</span> ]</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"没有找到该文件！"</span></span><br><span class="line">        <span class="built_in">exit</span> 2</span><br><span class="line"><span class="keyword">elif</span> [ -f <span class="string">"<span class="variable">$file</span>"</span> ]</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"<span class="variable">$file</span> 是文件。"</span></span><br><span class="line"><span class="keyword">elif</span> [ -d <span class="string">"<span class="variable">$file</span>"</span> ]</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"<span class="variable">$file</span> 是目录。"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"<span class="variable">$file</span> 是其他类型的文件。"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-<h2 id="5全局命令"><a class="markdownIt-Anchor" href="#5全局命令"></a> 5.全局命令</h2>
-<p>地址：<em>/usr/local/bin/xcall.sh</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">params=<span class="variable">$@</span></span><br><span class="line">i=141</span><br><span class="line"><span class="keyword">for</span> (( i=141; i &lt;= 143 ; i = <span class="variable">$i</span> + 1 )) ; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> ============= hadoop<span class="variable">$i</span> <span class="variable">$params</span> =============</span><br><span class="line">    ssh hadoop<span class="variable">$i</span> <span class="string">"<span class="variable">$params</span>"</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<p>实例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop142 bin]<span class="comment"># xcall.sh jps</span></span><br><span class="line">============= hadoop141 jps =============</span><br><span class="line">5388 Jps</span><br><span class="line">============= hadoop142 jps =============</span><br><span class="line">12996 Jps</span><br><span class="line">============= hadoop143 jps =============</span><br><span class="line">14881 Jps</span><br><span class="line">You have new mail <span class="keyword">in</span> /var/spool/mail/root</span><br></pre></td></tr></table></figure>
-<h2 id="6全局分发"><a class="markdownIt-Anchor" href="#6全局分发"></a> 6.全局分发</h2>
-<p>地址：<em>/opt/module/xrsync.sh</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#1 获取输入参数个数，如果没有参数，直接退出</span></span><br><span class="line">pcount=<span class="variable">$#</span></span><br><span class="line"><span class="keyword">if</span> ((pcount==0)); <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> no args;</span><br><span class="line"><span class="built_in">exit</span>;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#2 获取文件名称</span></span><br><span class="line">p1=<span class="variable">$1</span></span><br><span class="line">fname=`basename <span class="variable">$p1</span>`</span><br><span class="line"><span class="built_in">echo</span> fname=<span class="variable">$fname</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3 获取上级目录的对路径</span></span><br><span class="line">pdir=`<span class="built_in">cd</span> -P $(dirname <span class="variable">$p1</span>); <span class="built_in">pwd</span>`</span><br><span class="line"><span class="built_in">echo</span> pdir=<span class="variable">$pdir</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#4 获取当前用户名称</span></span><br><span class="line">user=`whoami`</span><br><span class="line"></span><br><span class="line"><span class="comment">#5 循环</span></span><br><span class="line"><span class="keyword">for</span>((host=141; host&lt;143; host++)); <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> ------------------- hadoop<span class="variable">$host</span> --------------</span><br><span class="line">        rsync -av <span class="variable">$pdir</span>/<span class="variable">$fname</span> <span class="variable">$user</span>@hadoop<span class="variable">$host</span>:<span class="variable">$pdir</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<h2 id="7启动zookeeper"><a class="markdownIt-Anchor" href="#7启动zookeeper"></a> 7.启动zookeeper</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">arg=<span class="variable">$#</span></span><br><span class="line"><span class="keyword">if</span>((arg==0));<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> no args;</span><br><span class="line"><span class="built_in">exit</span>;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></span><br><span class="line"><span class="string">"start"</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> hadoop141 hadoop142 hadoop143</span><br><span class="line">                <span class="keyword">do</span></span><br><span class="line">                        ssh <span class="variable">$i</span> <span class="string">"<span class="variable">$ZOOKEEPER_HOME</span>/bin/zkServer.sh start"</span></span><br><span class="line">                <span class="keyword">done</span></span><br><span class="line">&#125;;;</span><br><span class="line"><span class="string">"stop"</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> hadoop141 hadoop142 hadoop143</span><br><span class="line">                <span class="keyword">do</span></span><br><span class="line">                        ssh <span class="variable">$i</span> <span class="string">"<span class="variable">$ZOOKEEPER_HOME</span>/bin/zkServer.sh stop"</span></span><br><span class="line">                <span class="keyword">done</span></span><br><span class="line">&#125;;;</span><br><span class="line"><span class="string">"status"</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> hadoop141 hadoop142 hadoop143</span><br><span class="line">                <span class="keyword">do</span></span><br><span class="line">                        ssh <span class="variable">$i</span> <span class="string">"<span class="variable">$ZOOKEEPER_HOME</span>/bin/zkServer.sh status"</span></span><br><span class="line">                <span class="keyword">done</span></span><br><span class="line">&#125;;;         </span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+<h1 id="hbase-安装"><a class="markdownIt-Anchor" href="#hbase-安装"></a> HBase 安装</h1>
+<ol>
+<li>
+<p>启动 zookeeper<br />
+a. 进入 zookeeper 目录：<br />
+<code>/opt/module/zookeeper-3.4.10</code><br />
+b. 启动 zookeeper 命令：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkServer.sh start</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启动 Hadoop<br />
+a. 进入 Hadoop 目录：<br />
+<code>/opt/module/hadoop-2.7.2</code><br />
+b. 启动 DFS 命令：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-dfs.sh</span><br></pre></td></tr></table></figure>
+<p>c. Yarn 可以不要启动</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-yarn.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>HBase 的解压<br />
+解压 HBase 到指定目录：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop141 software]$ tar -zxvf hbase-1.3.1-bin.tar.gz -C /opt/module</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 HBase 的配置文件<br />
+a. <code>/opt/module/hbase-1.3.1/conf/hbase-env.sh</code> 修改内容：<br />
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/opt/module/jdk1.8.0_144</span><br><span class="line"><span class="built_in">export</span> HBASE_MANAGES_ZK=<span class="literal">false</span></span><br><span class="line">JDK1.8需要注释</span><br><span class="line"><span class="comment">#export HBASE_MASTER_OPTS...</span></span><br><span class="line"><span class="comment">#export HBASE_REGIONSERVER_OPTS...</span></span><br></pre></td></tr></table></figure></p>
+<pre><code> **&lt;font color=red&gt;注意：&lt;/font&gt;**
+ 还需要修改 HBASE_PID_DIR 内容，因为默认路径是在 /tmp 目录下，而 /tmp 目录不稳定，会导致 **&lt;font color=red&gt;HMaster&lt;/font&gt;** 进程自动断开：
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The directory where pid files are stored. /tmp by default.</span></span><br><span class="line"><span class="built_in">export</span> HBASE_PID_DIR=/opt/module/hbase-1.3.1/pids</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>b. <code>/opt/module/hbase-1.3.1/conf/hbase-site.xml</code> 修改内容：<br />
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;property&gt;     </span><br><span class="line">		&lt;name&gt;hbase.rootdir&lt;/name&gt;     </span><br><span class="line">		&lt;value&gt;hdfs://hadoop141:9000/hbase&lt;/value&gt;   </span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;property&gt;   </span><br><span class="line">		&lt;name&gt;hbase.cluster.distributed&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;<span class="literal">true</span>&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">   &lt;!-- 0.98后的新变动，之前版本没有.port,默认端口为60000 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;hbase.master.port&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;16000&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;property&gt;   </span><br><span class="line">		&lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt;</span><br><span class="line">		 &lt;value&gt;hadoop141:2181,hadoop142:2181,hadoop143:2181&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;property&gt;   </span><br><span class="line">		&lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt;</span><br><span class="line">		 &lt;value&gt;/opt/module/zookeeper-3.4.10/zkData&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure><br />
+c. <code>/opt/module/hbase-1.3.1/conf/regionservers</code> 的修改：<br />
+添加你的集群：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop141</span><br><span class="line">hadoop142</span><br><span class="line">hadoop143</span><br></pre></td></tr></table></figure>
+<p>d. 软连接hadoop配置文件到hbase：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop141 module]$ ln -s /opt/module/hadoop-2.7.2/etc/hadoop/core-site.xml </span><br><span class="line">	/opt/module/hbase-1.3.1/conf/core-site.xml</span><br><span class="line">[root@hadoop141 module]$ ln -s /opt/module/hadoop-2.7.2/etc/hadoop/hdfs-site.xml </span><br><span class="line">	/opt/module/hbase-1.3.1/conf/hdfs-site.xml</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>HBase远程发送到其他集群</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop141 module]<span class="comment"># xrsync.sh hbase-1.3.1/</span></span><br></pre></td></tr></table></figure>
+<p>远程分发脚本：<a href="http://xrsync.sh" target="_blank" rel="noopener">xrsync.sh</a></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#1 获取输入参数个数，如果没有参数，直接退出</span></span><br><span class="line">pcount=<span class="variable">$#</span></span><br><span class="line"><span class="keyword">if</span> ((pcount==0)); <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> no args;</span><br><span class="line"><span class="built_in">exit</span>;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#2 获取文件名称</span></span><br><span class="line">p1=<span class="variable">$1</span></span><br><span class="line">fname=`basename <span class="variable">$p1</span>`</span><br><span class="line"><span class="built_in">echo</span> fname=<span class="variable">$fname</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#3 获取上级目录的对路径</span></span><br><span class="line">pdir=`<span class="built_in">cd</span> -P $(dirname <span class="variable">$p1</span>); <span class="built_in">pwd</span>`</span><br><span class="line"><span class="built_in">echo</span> pdir=<span class="variable">$pdir</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#4 获取当前用户名称</span></span><br><span class="line">user=`whoami`</span><br><span class="line"></span><br><span class="line"><span class="comment">#5 循环</span></span><br><span class="line"><span class="keyword">for</span>((host=140; host&lt;143; host++)); <span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> ------------------- hadoop<span class="variable">$host</span> --------------</span><br><span class="line">		rsync -av <span class="variable">$pdir</span>/<span class="variable">$fname</span> <span class="variable">$user</span>@hadoop<span class="variable">$host</span>:<span class="variable">$pdir</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>HBase服务的启动<br />
+<strong>注意</strong>：启动前必须做好 <strong><font color=red>同步时间服务</font></strong><br />
+启动服务命令：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop141 hbase]$ bin/start-hbase.sh</span><br></pre></td></tr></table></figure>
+<p>停止服务命令：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop141 hbase]$ bin/stop-hbase.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>查看HBase页面<br />
+a. 启动成功：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop141 module]<span class="comment"># xcall.sh jps</span></span><br><span class="line">============= hadoop141 jps =============</span><br><span class="line">12611 Jps</span><br><span class="line">7495 HRegionServer</span><br><span class="line">8650 HMaster</span><br><span class="line">3066 QuorumPeerMain</span><br><span class="line">2636 NameNode</span><br><span class="line">2751 DataNode</span><br><span class="line">============= hadoop142 jps =============</span><br><span class="line">9361 Jps</span><br><span class="line">2516 DataNode</span><br><span class="line">5596 HRegionServer</span><br><span class="line">2636 QuorumPeerMain</span><br><span class="line">============= hadoop143 jps =============</span><br><span class="line">2513 DataNode</span><br><span class="line">10662 Jps</span><br><span class="line">6250 HRegionServer</span><br><span class="line">2589 SecondaryNameNode</span><br><span class="line">2717 QuorumPeerMain</span><br></pre></td></tr></table></figure>
+<p>b. 启动成功后，可以通过“host:port”的方式来访问HBase管理页面，例如：<br />
+<a href="http://hadoop141:16010" target="_blank" rel="noopener">http://hadoop141:16010</a></p>
+</li>
+</ol>
 <hr />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
@@ -410,7 +463,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2020/05/01/Shell%E7%BC%96%E7%A8%8B/" title="Shell编程" target="_blank" rel="external">http://yoursite.com/2020/05/01/Shell%E7%BC%96%E7%A8%8B/</a>
+      <a href="http://yoursite.com/2020/05/12/HBase-%E5%AE%89%E8%A3%85/" title="HBase 安装" target="_blank" rel="external">http://yoursite.com/2020/05/12/HBase-%E5%AE%89%E8%A3%85/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -458,15 +511,20 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/05/01/Rational-Rose-Enterprise/" title="Rational Rose Enterprise"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/05/01/Python3%20%E6%A0%87%E5%87%86%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="Python3 标准数据类型"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/05/12/Hbase-%E7%AE%80%E4%BB%8B/" title="HBase 简介"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
     
   </ul>
   

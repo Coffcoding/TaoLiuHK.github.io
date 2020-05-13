@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1505605866,723387008&fm=26&gp=0.jpg">
 <meta property="article:published_time" content="2020-05-12T12:32:23.000Z">
-<meta property="article:modified_time" content="2020-05-13T03:02:00.393Z">
+<meta property="article:modified_time" content="2020-05-13T08:45:44.201Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="HBase">
 <meta name="twitter:card" content="summary">
@@ -481,31 +481,59 @@ Hbase的扩展性主要体现在两个方面，一个是基于上层处理能力
 </ol>
 <h3 id="hmaster"><a class="markdownIt-Anchor" href="#hmaster"></a> HMaster</h3>
 <p><strong>功能</strong></p>
-<p>1．监控RegionServer</p>
-<p>2．处理RegionServer故障转移</p>
-<p>3．处理元数据的变更</p>
-<p>4．处理region的分配或转移</p>
-<p>5．在空闲时间进行数据的负载均衡</p>
-<p>6．通过Zookeeper发布自己的位置给客户端</p>
+<ol>
+<li>
+<p>监控RegionServer</p>
+</li>
+<li>
+<p>处理RegionServer故障转移</p>
+</li>
+<li>
+<p>处理元数据的变更</p>
+</li>
+<li>
+<p>处理region的分配或转移</p>
+</li>
+<li>
+<p>在空闲时间进行数据的负载均衡</p>
+</li>
+<li>
+<p>通过Zookeeper发布自己的位置给客户端</p>
+</li>
+</ol>
 <h3 id="regionserver"><a class="markdownIt-Anchor" href="#regionserver"></a> RegionServer</h3>
 <p><strong>功能</strong></p>
-<p>1．负责存储HBase的实际数据</p>
-<p>2．处理分配给它的Region</p>
-<p>3．刷新缓存到HDFS</p>
-<p>4．维护Hlog</p>
-<p>5．执行压缩</p>
-<p>6．负责处理Region分片</p>
+<ol>
+<li>负责存储HBase的实际数据</li>
+<li>处理分配给它的Region</li>
+<li>刷新缓存到HDFS</li>
+<li>维护Hlog</li>
+<li>执行压缩</li>
+<li>负责处理Region分片</li>
+</ol>
 <h3 id="其他组件"><a class="markdownIt-Anchor" href="#其他组件"></a> 其他组件</h3>
-<p>1．Write-Ahead logs</p>
-<p>HBase的修改记录，当对HBase读写数据的时候，数据不是直接写进磁盘，它会在内存中保留一段时间（时间以及数据量阈值可以设定）。但把数据保存在内存中可能有更高的概率引起数据丢失，为了解决这个问题，数据会先写在一个叫做Write-Ahead logfile的文件中，然后再写入内存中。所以在系统出现故障的时候，数据可以通过这个日志文件重建。</p>
-<p>2．Region</p>
-<p>Hbase表的分片，HBase表会根据RowKey值被切分成不同的region存储在RegionServer中，在一个RegionServer中可以有多个不同的region。</p>
-<p>3．Store</p>
-<p>HFile存储在Store中，一个Store对应HBase表中的一个列族(列簇， Column Family)。</p>
-<p>4．MemStore</p>
-<p>顾名思义，就是内存存储，位于内存中，用来保存当前的数据操作，所以当数据保存在WAL中之后，RegsionServer会在内存中存储键值对。</p>
-<p>5．HFile</p>
-<p>这是在磁盘上保存原始数据的实际的物理文件，是实际的存储文件。StoreFile是以Hfile的形式存储在HDFS的。</p>
+<ol>
+<li>
+<p>Write-Ahead logs<br />
+HBase的修改记录，当对HBase读写数据的时候，数据不是直接写进磁盘，它会在内存中保留一段时间（时间以及数据量阈值可以设定）。但把数据保存在内存中可能有更高的概率引起数据丢失，为了解决这个问题，数据会先写在一个叫做Write-Ahead logfile的文件中，然后再写入内存中。所以在系统出现故障的时候，数据可以通过这个日志文件重建。</p>
+</li>
+<li>
+<p>Region<br />
+Hbase表的分片，HBase表会根据RowKey值被切分成不同的region存储在RegionServer中，在一个RegionServer中可以有多个不同的region。</p>
+</li>
+<li>
+<p>Store<br />
+HFile存储在Store中，一个Store对应HBase表中的一个列族(列簇， Column Family)。</p>
+</li>
+<li>
+<p>MemStore<br />
+顾名思义，就是内存存储，位于内存中，用来保存当前的数据操作，所以当数据保存在WAL中之后，RegsionServer会在内存中存储键值对。</p>
+</li>
+<li>
+<p>File<br />
+这是在磁盘上保存原始数据的实际的物理文件，是实际的存储文件。StoreFile是以Hfile的形式存储在HDFS的。</p>
+</li>
+</ol>
 <hr />
 <p>​	<br />
 ​	<br />

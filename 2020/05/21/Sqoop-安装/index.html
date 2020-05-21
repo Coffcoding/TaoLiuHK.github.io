@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Sqoop 安装 | CoffeeCode</title>
+  <meta name="description" content="Sqoop 安装  Sqoop 简介 ​	Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如 ： MySQL ,Oracle ,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。 ​	Sqoop项目开始于2009年，最早是作为Hado">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sqoop 安装">
+<meta property="og:url" content="http://yoursite.com/2020/05/21/%C2%96Sqoop-%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="COFFEECODE">
+<meta property="og:description" content="Sqoop 安装  Sqoop 简介 ​	Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如 ： MySQL ,Oracle ,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。 ​	Sqoop项目开始于2009年，最早是作为Hado">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-21T02:09:17.000Z">
+<meta property="article:modified_time" content="2020-05-21T08:45:39.240Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Sqoop">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2020/05/21/%C2%96Sqoop-%E5%AE%89%E8%A3%85/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="COFFEECODE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/TaoLiuHK" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">CoffeeCode</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer &amp; BigData</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> ChangShao, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon fa-dashboard"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon fa-delicious"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon fa-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon fa-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon fa-code"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon fa-leanpub"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon fa-gg"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon fa-coffee"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/TaoLiuHK" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Shell%E8%84%9A%E6%9C%AC/">Shell脚本</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/Vim/">Vim</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">网络配置</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typora/">Typora</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Typora/Markdown/">Markdown</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/HBase/">HBase</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/Kafka/">Kafka</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/Sqoop/">Sqoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/ZooKeeper/">ZooKeeper</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/">SSM</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/Mybatis/">Mybatis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/Spring/">Spring</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%B5%E5%BD%B1/">电影</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7/">项目工具</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liunx/" rel="tag">Liunx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSM/" rel="tag">SSM</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell%E8%84%9A%E6%9C%AC/" rel="tag">Shell脚本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sqoop/" rel="tag">Sqoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dump/" rel="tag">dump</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restore/" rel="tag">restore</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A5%87%E5%B9%BB/" rel="tag">奇幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8A%AF%E7%BD%AA/" rel="tag">犯罪</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%BD%B1/" rel="tag">电影</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" rel="tag">编辑器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" rel="tag">网络配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/HBase/" style="font-size: 13.5px;">HBase</a> <a href="/tags/Kafka/" style="font-size: 14px;">Kafka</a> <a href="/tags/LeetCode/" style="font-size: 13px;">LeetCode</a> <a href="/tags/Linux/" style="font-size: 13.75px;">Linux</a> <a href="/tags/Liunx/" style="font-size: 13px;">Liunx</a> <a href="/tags/Markdown/" style="font-size: 13px;">Markdown</a> <a href="/tags/Mybatis/" style="font-size: 13px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 13.5px;">SSM</a> <a href="/tags/Shell%E8%84%9A%E6%9C%AC/" style="font-size: 13px;">Shell脚本</a> <a href="/tags/Spring/" style="font-size: 13.25px;">Spring</a> <a href="/tags/Sqoop/" style="font-size: 13px;">Sqoop</a> <a href="/tags/Typora/" style="font-size: 13px;">Typora</a> <a href="/tags/Vim/" style="font-size: 13px;">Vim</a> <a href="/tags/ZooKeeper/" style="font-size: 13px;">ZooKeeper</a> <a href="/tags/dump/" style="font-size: 13px;">dump</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/restore/" style="font-size: 13px;">restore</a> <a href="/tags/%E5%A5%87%E5%B9%BB/" style="font-size: 13px;">奇幻</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E7%8A%AF%E7%BD%AA/" style="font-size: 13px;">犯罪</a> <a href="/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 13.5px;">电影</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 13px;">科幻</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13px;">算法</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 13px;">编辑器</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" style="font-size: 13px;">网络配置</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 13px;">虚拟机</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">33</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/21/%C2%96Sqoop-%E5%AE%89%E8%A3%85/" class="title">Sqoop 安装</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-21T02:09:17.000Z" itemprop="datePublished">2020-05-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/16/HBase-API/" class="title">HBase API</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-16T14:30:00.000Z" itemprop="datePublished">2020-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Typora/">Typora</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/Typora/Markdown/">Markdown</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/15/Markdown%E7%BC%96%E8%BE%91%E5%99%A8-Typora-%E6%94%AF%E6%8C%81SM-MS%E5%9B%BE%E5%BA%8A%E5%8A%9F%E8%83%BD/" class="title">Markdown 编辑器 Typora 支持SM.MS图床功能</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-15T06:30:08.000Z" itemprop="datePublished">2020-05-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/13/Python-%E5%AD%A6%E4%B9%A0/" class="title">Python 学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-13T09:20:02.000Z" itemprop="datePublished">2020-05-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/12/HBase-Shell%E6%93%8D%E4%BD%9C/" class="title">HBase Shell操作</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-12T14:43:27.000Z" itemprop="datePublished">2020-05-12</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Sqoop-安装" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sqoop 安装
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/05/21/%C2%96Sqoop-%E5%AE%89%E8%A3%85/" class="article-date">
+	  <time datetime="2020-05-21T02:09:17.000Z" itemprop="datePublished">2020-05-21</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>►<a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a>►<a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/Sqoop/">Sqoop</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Sqoop/" rel="tag">Sqoop</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/21/%C2%96Sqoop-%E5%AE%89%E8%A3%85/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="sqoop-安装"><a class="markdownIt-Anchor" href="#sqoop-安装"></a> Sqoop 安装</h1>
+<h2 id="sqoop-简介"><a class="markdownIt-Anchor" href="#sqoop-简介"></a> Sqoop 简介</h2>
+<p>​	Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库（例如 ： MySQL ,Oracle ,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。</p>
+<p>​	Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来为了让使用者能够快速部署，也为了让开发人员能够更快速的迭代开发，Sqoop独立成为一个Apache项目。</p>
+<p>​	Sqoop2的最新版本是1.99.7。请注意，2与1不兼容，且特征不完整，它并不打算用于生产部署。</p>
+<h2 id="sqoop-官网"><a class="markdownIt-Anchor" href="#sqoop-官网"></a> Sqoop 官网</h2>
+<p>官网：</p>
+<p><a href="http://sqoop.apache.org" target="_blank" rel="noopener">http://sqoop.apache.org</a></p>
+<p>1.4.7官方文档：</p>
+<p><a href="http://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html" target="_blank" rel="noopener">http://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html</a></p>
+<h2 id="sqoop-原理"><a class="markdownIt-Anchor" href="#sqoop-原理"></a> Sqoop 原理</h2>
+<p>​	将导入或导出命令翻译成mapreduce程序来实现。</p>
+<p>​	在翻译出的mapreduce中主要是对inputformat和outputformat进行定制。</p>
+<h2 id="sqoop-安装-2"><a class="markdownIt-Anchor" href="#sqoop-安装-2"></a> Sqoop 安装</h2>
+<h3 id="1-下载并解压"><a class="markdownIt-Anchor" href="#1-下载并解压"></a> 1. 下载并解压</h3>
+<ol>
+<li>
+<p>下载地址：<a href="http://mirrors.hust.edu.cn/apache/sqoop/1.4.7/" target="_blank" rel="noopener">http://mirrors.hust.edu.cn/apache/sqoop/1.4.7/</a></p>
+</li>
+<li>
+<p>上传安装包sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz到虚拟机中</p>
+</li>
+<li>
+<p>解压sqoop安装包到指定目录，如：</p>
+</li>
+</ol>
+<p><code>$ tar -zxf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz -C /opt/module/</code></p>
+<h3 id="2-修改配置文件"><a class="markdownIt-Anchor" href="#2-修改配置文件"></a> 2. 修改配置文件</h3>
+<p><strong>1)</strong> <strong>重命名配置文件</strong></p>
+<p><code>$ cd /opt/module/sqoop-1.4.7.bin__hadoop-2.6.0/conf</code></p>
+<p><code>$ mv sqoop-env-template.sh sqoop-env.sh</code></p>
+<p><strong>2)</strong> <strong>修改配置文件</strong></p>
+<p><code>vim sqoop-env.sh</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Set path to where bin/hadoop is available</span></span><br><span class="line"><span class="comment">#export HADOOP_COMMON_HOME=</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_HOME=/opt/module/hadoop-2.7.2</span><br><span class="line"></span><br><span class="line"><span class="comment">#Set path to where hadoop-*-core.jar is available</span></span><br><span class="line"><span class="comment">#export HADOOP_MAPRED_HOME=</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_MAPRED_HOME=/opt/module/hadoop-2.7.2</span><br><span class="line"></span><br><span class="line"><span class="comment">#set the path to where bin/hbase is available</span></span><br><span class="line"><span class="comment">#export HBASE_HOME=</span></span><br><span class="line"><span class="built_in">export</span> HBASE_HOME=/opt/module/hbase-1.3.1</span><br><span class="line"></span><br><span class="line"><span class="comment">#Set the path to where bin/hive is available</span></span><br><span class="line"><span class="comment">#export HIVE_HOME=</span></span><br><span class="line"><span class="built_in">export</span> HIVE_HOME=/opt/module/hive-2.3.6</span><br><span class="line"></span><br><span class="line"><span class="comment">#Set the path for where zookeper config dir is</span></span><br><span class="line"><span class="comment">#export ZOOCFGDIR=</span></span><br><span class="line"><span class="built_in">export</span> ZOOKEEPER_HOME=/opt/module/zookeeper-3.4.10</span><br><span class="line"><span class="built_in">export</span> ZOOCFGDIR=/opt/module/zookeeper-3.4.10</span><br></pre></td></tr></table></figure>
+<h3 id="3-拷贝jdbc驱动"><a class="markdownIt-Anchor" href="#3-拷贝jdbc驱动"></a> 3. 拷贝JDBC驱动</h3>
+<p>​	拷贝jdbc驱动到sqoop的lib目录下，如:</p>
+<p><code>cp mysql-connector-java-5.1.27-bin.jar /opt/module/sqoop-1.4.7.bin__hadoop-2.6.0/lib/</code></p>
+<h3 id="4-验证sqoop"><a class="markdownIt-Anchor" href="#4-验证sqoop"></a> 4. 验证Sqoop</h3>
+<p>​	输入命令：</p>
+<p><code>bin/sqoop help</code></p>
+<p>​	出现一些Warning警告，并伴随着帮助命令的输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop141 sqoop-1.4.7.bin__hadoop-2.6.0]<span class="comment"># bin/sqoop help</span></span><br><span class="line">Warning: /opt/module/sqoop-1.4.7.bin__hadoop-2.6.0/bin/../../hcatalog does not exist! HCatalog <span class="built_in">jobs</span> will fail.</span><br><span class="line">Please <span class="built_in">set</span> <span class="variable">$HCAT_HOME</span> to the root of your HCatalog installation.</span><br><span class="line">Warning: /opt/module/sqoop-1.4.7.bin__hadoop-2.6.0/bin/../../accumulo does not exist! Accumulo imports will fail.</span><br><span class="line">Please <span class="built_in">set</span> <span class="variable">$ACCUMULO_HOME</span> to the root of your Accumulo installation.</span><br><span class="line">20/05/21 07:36:41 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7</span><br><span class="line">usage: sqoop COMMAND [ARGS]</span><br><span class="line"></span><br><span class="line">Available commands:</span><br><span class="line">  codegen            Generate code to interact with database records</span><br><span class="line">  create-hive-table  Import a table definition into Hive</span><br><span class="line">  <span class="built_in">eval</span>               Evaluate a SQL statement and display the results</span><br><span class="line">  <span class="built_in">export</span>             Export an HDFS directory to a database table</span><br><span class="line">  <span class="built_in">help</span>               List available commands</span><br><span class="line">  import             Import a table from a database to HDFS</span><br><span class="line">  import-all-tables  Import tables from a database to HDFS</span><br><span class="line">  import-mainframe   Import datasets from a mainframe server to HDFS</span><br><span class="line">  job                Work with saved <span class="built_in">jobs</span></span><br><span class="line">  list-databases     List available databases on a server</span><br><span class="line">  list-tables        List available tables <span class="keyword">in</span> a database</span><br><span class="line">  merge              Merge results of incremental imports</span><br><span class="line">  metastore          Run a standalone Sqoop metastore</span><br><span class="line">  version            Display version information</span><br><span class="line"></span><br><span class="line">See <span class="string">'sqoop help COMMAND'</span> <span class="keyword">for</span> information on a specific <span class="built_in">command</span>.</span><br></pre></td></tr></table></figure>
+<h3 id="5-测试sqoop是否能够成功连接数据库"><a class="markdownIt-Anchor" href="#5-测试sqoop是否能够成功连接数据库"></a> 5. 测试Sqoop是否能够成功连接数据库</h3>
+<p>​	执行命令：</p>
+<p><code>bin/sqoop list-databases --connect jdbc:mysql://hadoop141:3306/ --username 数据库用户名--password 数据库密码</code></p>
+<p>​	出现如下输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Warning: /opt/module/sqoop-1.4.7.bin__hadoop-2.6.0/bin/../../hcatalog does not exist! HCatalog <span class="built_in">jobs</span> will fail.</span><br><span class="line">Please <span class="built_in">set</span> <span class="variable">$HCAT_HOME</span> to the root of your HCatalog installation.</span><br><span class="line">Warning: /opt/module/sqoop-1.4.7.bin__hadoop-2.6.0/bin/../../accumulo does not exist! Accumulo imports will fail.</span><br><span class="line">Please <span class="built_in">set</span> <span class="variable">$ACCUMULO_HOME</span> to the root of your Accumulo installation.</span><br><span class="line">20/05/21 07:40:21 INFO sqoop.Sqoop: Running Sqoop version: 1.4.7</span><br><span class="line">20/05/21 07:40:21 WARN tool.BaseSqoopTool: Setting your password on the <span class="built_in">command</span>-line is insecure. Consider using -P instead.</span><br><span class="line">20/05/21 07:40:21 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.</span><br><span class="line">information_schema</span><br><span class="line">hive</span><br><span class="line">mysql</span><br><span class="line">performance_schema</span><br><span class="line"><span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<p>​	当出现如下数据库表示连接正常：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">information_schema</span><br><span class="line">mysql</span><br><span class="line">performance_schema</span><br></pre></td></tr></table></figure>
+<hr />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2020/05/21/%C2%96Sqoop-%E5%AE%89%E8%A3%85/" title="Sqoop 安装" target="_blank" rel="external">http://yoursite.com/2020/05/21/%C2%96Sqoop-%E5%AE%89%E8%A3%85/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/TaoLiuHK" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/TaoLiuHK" target="_blank"><span class="text-dark">CoffeeCode</span><small class="ml-1x">Web Developer &amp; Designer &amp; BigData</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="lv-container" data-id="city" data-uid="coffee">
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>    
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/05/16/HBase-API/" title="HBase API"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/TaoLiuHK" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

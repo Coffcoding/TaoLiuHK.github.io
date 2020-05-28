@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>大数据学习路线 | CoffeeCode</title>
+  <meta name="description" content="大数据学习路线  引言 本文的目的是希望给所有大数据初学者规划一条比较清晰的学习路线，帮助他们开启大数据学习之旅。鉴于大数据领域内的技术绚丽繁复，每位大数据初学者都应该根据自己的实际情况制定专属的学习路径。 大数据，即Big Data，关于它的定义很多，最权威的莫属IBM的定义，读者可以自行查阅，笔者在这里不再赘述。既然本文关注的是如何学习大数据，那么我们首先就要定义大数据领域内的不同角色，这样">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据学习路线">
+<meta property="og:url" content="http://yoursite.com/2020/05/28/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/index.html">
+<meta property="og:site_name" content="COFFEECODE">
+<meta property="og:description" content="大数据学习路线  引言 本文的目的是希望给所有大数据初学者规划一条比较清晰的学习路线，帮助他们开启大数据学习之旅。鉴于大数据领域内的技术绚丽繁复，每位大数据初学者都应该根据自己的实际情况制定专属的学习路径。 大数据，即Big Data，关于它的定义很多，最权威的莫属IBM的定义，读者可以自行查阅，笔者在这里不再赘述。既然本文关注的是如何学习大数据，那么我们首先就要定义大数据领域内的不同角色，这样">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-28T07:38:58.000Z">
+<meta property="article:modified_time" content="2020-05-28T14:15:46.824Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="BigData">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2020/05/28/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="COFFEECODE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/TaoLiuHK" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">CoffeeCode</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer &amp; BigData</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> ChangShao, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon fa-dashboard"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon fa-delicious"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon fa-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon fa-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon fa-code"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon fa-leanpub"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon fa-gg"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon fa-coffee"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/TaoLiuHK" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BigData/">BigData</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Shell%E8%84%9A%E6%9C%AC/">Shell脚本</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/Vim/">Vim</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">网络配置</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typora/">Typora</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Typora/Markdown/">Markdown</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/HBase/">HBase</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/Kafka/">Kafka</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/Sqoop/">Sqoop</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/ZooKeeper/">ZooKeeper</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/">SSM</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/Mybatis/">Mybatis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/Spring/">Spring</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%B5%E5%BD%B1/">电影</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7/">项目工具</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigData/" rel="tag">BigData</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liunx/" rel="tag">Liunx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSM/" rel="tag">SSM</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell%E8%84%9A%E6%9C%AC/" rel="tag">Shell脚本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sqoop/" rel="tag">Sqoop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dump/" rel="tag">dump</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restore/" rel="tag">restore</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A5%87%E5%B9%BB/" rel="tag">奇幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8A%AF%E7%BD%AA/" rel="tag">犯罪</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%BD%B1/" rel="tag">电影</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" rel="tag">编辑器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" rel="tag">网络配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/BigData/" style="font-size: 13px;">BigData</a> <a href="/tags/HBase/" style="font-size: 13.5px;">HBase</a> <a href="/tags/Kafka/" style="font-size: 14px;">Kafka</a> <a href="/tags/LeetCode/" style="font-size: 13px;">LeetCode</a> <a href="/tags/Linux/" style="font-size: 13.75px;">Linux</a> <a href="/tags/Liunx/" style="font-size: 13px;">Liunx</a> <a href="/tags/Markdown/" style="font-size: 13px;">Markdown</a> <a href="/tags/Mybatis/" style="font-size: 13px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 13.5px;">SSM</a> <a href="/tags/Shell%E8%84%9A%E6%9C%AC/" style="font-size: 13px;">Shell脚本</a> <a href="/tags/Spring/" style="font-size: 13.25px;">Spring</a> <a href="/tags/Sqoop/" style="font-size: 13.25px;">Sqoop</a> <a href="/tags/Typora/" style="font-size: 13px;">Typora</a> <a href="/tags/Vim/" style="font-size: 13px;">Vim</a> <a href="/tags/ZooKeeper/" style="font-size: 13px;">ZooKeeper</a> <a href="/tags/dump/" style="font-size: 13px;">dump</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/restore/" style="font-size: 13px;">restore</a> <a href="/tags/%E5%A5%87%E5%B9%BB/" style="font-size: 13px;">奇幻</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E7%8A%AF%E7%BD%AA/" style="font-size: 13px;">犯罪</a> <a href="/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 13.5px;">电影</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 13px;">科幻</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13px;">算法</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 13px;">编辑器</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" style="font-size: 13px;">网络配置</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 13px;">虚拟机</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">35</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/BigData/">BigData</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/28/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" class="title">大数据学习路线</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-28T07:38:58.000Z" itemprop="datePublished">2020-05-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/21/Sqoop-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="title">Sqoop 简单使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-21T08:54:34.000Z" itemprop="datePublished">2020-05-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/21/%C2%96Sqoop-%E5%AE%89%E8%A3%85/" class="title">Sqoop 安装</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-21T02:09:17.000Z" itemprop="datePublished">2020-05-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/16/HBase-API/" class="title">HBase API</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-16T14:30:00.000Z" itemprop="datePublished">2020-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Typora/">Typora</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/Typora/Markdown/">Markdown</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/15/Markdown%E7%BC%96%E8%BE%91%E5%99%A8-Typora-%E6%94%AF%E6%8C%81SM-MS%E5%9B%BE%E5%BA%8A%E5%8A%9F%E8%83%BD/" class="title">Markdown 编辑器 Typora 支持SM.MS图床功能</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-15T06:30:08.000Z" itemprop="datePublished">2020-05-15</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-大数据学习路线" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      大数据学习路线
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/05/28/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" class="article-date">
+	  <time datetime="2020-05-28T07:38:58.000Z" itemprop="datePublished">2020-05-28</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/BigData/">BigData</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/BigData/" rel="tag">BigData</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/28/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="大数据学习路线"><a class="markdownIt-Anchor" href="#大数据学习路线"></a> 大数据学习路线</h1>
+<h2 id="引言"><a class="markdownIt-Anchor" href="#引言"></a> 引言</h2>
+<p>本文的目的是希望给所有大数据初学者规划一条比较清晰的学习路线，帮助他们开启大数据学习之旅。鉴于大数据领域内的技术绚丽繁复，每位大数据初学者都应该根据自己的实际情况制定专属的学习路径。</p>
+<p>大数据，即Big Data，关于它的定义很多，最权威的莫属IBM的定义，读者可以自行查阅，笔者在这里不再赘述。既然本文关注的是如何学习大数据，那么我们首先就要定义大数据领域内的不同角色，这样各位读者才能根据自身实际情况找准自己的定位，从而开启学习过程。</p>
+<h2 id="角色"><a class="markdownIt-Anchor" href="#角色"></a> 角色</h2>
+<p>当下大数据行业有如下两类角色：</p>
+<ol>
+<li>大数据工程师</li>
+<li>大数据分析</li>
+</ol>
+<p>这两类角色相互依存但又独立运作，何意？没有大数据工程，大数据分析便无从谈起；但若没有大数据分析，大数据工程也没有存在的理由。这就类似于结婚和谈恋爱——谈恋爱的目的是为了结婚，且不以结婚为目的的谈恋爱都是耍流氓。</p>
+<p>具体来说，大数据工程需要解决数据的定义、收集、计算与保存的工作，因此大数据工程师们在设计和部署这样的系统时首要考虑的是数据高可用的问题，即大数据工程系统需要实时地为下游业务系统或分析系统提供数据服务；而大数据分析角色定位于如何利用数据——即从大数据工程系统中接收到数据之后，如何为企业或组织提供有产出的数据分析，并且确实能够帮助公司进行业务改善或提升服务水平，所以对于大数据分析师来说，他们首要解决的问题是发现并利用数据的价值，具体可能包括：趋势分析、模型建立以及预测分析等。</p>
+<p>简单总结一下，大数据工程角色需要考虑数据的收集、计算(或是处理)和保存；大数据分析角色则是执行数据的高级计算。</p>
+<h2 id="我们属于哪种角色"><a class="markdownIt-Anchor" href="#我们属于哪种角色"></a> 我们属于哪种角色</h2>
+<p>既然我们了解了大数据领域内的角色分类，下面自然就需要“对号入座”确定自己的定位，这样才能有的放矢地开始学习大数据。在考虑这个问题时，我们需要参考如下两方面的因素。</p>
+<ol>
+<li>专业知识背景</li>
+<li>行业经验</li>
+</ol>
+<p>这里的专业知识背景不是指学历、院校这种背景，而是你对某些IT技术的了解程度。即使你不是计算机专业出身，只要你对C语言有一腔热血，哪怕是C之父Dennis Ritchie也不敢小瞧你。因此，这里的专业知识其实就只有如下两个：</p>
+<ol>
+<li>计算机专业知识，比如操作系统、编程语言、计算机运行原理等。</li>
+<li>数学知识，这里指代的是高等数学，比如微积分、概率统计、线性代数和离散数学等，并不是x×x+y×y= 1画出来是什么图形这样的数学。</li>
+</ol>
+<p>而行业经验指的是你在相关领域内的工作经验，具体可以分为如下3档：</p>
+<ol>
+<li>菜鸟；</li>
+<li>有一定经验的工程师；</li>
+<li>资深专家——现在在大数据领域内有一个更酷的名字，即数据科学家，比如前百度首席数据科学家吴恩达博士。</li>
+</ol>
+<p>好了，现在我们就可以根据上面的分类来定义自己的角色。比如拿笔者来说，对自己的定位是：“我是一名计算机专业毕业的工程师，有一定的数学基础(特别是在微积分和线性代数方面)，但数理统计和概率论部分不是我的强项。”另外最好别打肿脸充胖子，如果之前没什么经验，承认自己是菜鸟也没事，关键是找准自己的定位。</p>
+<p>确定自己的定位后，我们需要对应到特定的大数据角色，以下是一些基本法则：</p>
+<ol>
+<li>如果您具有良好的编程基础且深入了解计算机的交互方式以及互联网底层技术原理，但数学和统计学掌握得不深，那么大数据工程可能是您今后学习的方向。</li>
+<li>如果您有一定的编程基础(掌握一些高级语言，如Python等)，同时又有很强的数学功底，那么大数据分析可能是您努力的方向。</li>
+</ol>
+<h2 id="学习路线"><a class="markdownIt-Anchor" href="#学习路线"></a> 学习路线</h2>
+<p>不管您属于以上哪种角色，有一些大数据理论知识是您必须要掌握的，它们包括但不限于以下这些。</p>
+<ul>
+<li>
+<p>数据分片与路由：挑一个典型的分区算法去学习，比如一致性哈希算法（<a href="https://en.wikipedia.org/wiki/Consistent_hashing%EF%BC%89%E3%80%82" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Consistent_hashing）。</a></p>
+</li>
+<li>
+<p>备份机制与一致性。</p>
+<p>​	√ 学习国内被奉为“圣经”但在国外也就一般的CAP理论（<a href="https://en.wikipedia.org/wiki/CAP_theorem%EF%BC%89%E3%80%82" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/CAP_theorem）。</a></p>
+<p>​	√ 幂等性（Idempotent），很多分布式系统状态管理的基石（<a href="https://mortoray.com/2014/09/05/what-is-an-idempotent-function/%EF%BC%89%E3%80%82" target="_blank" rel="noopener">https://mortoray.com/2014/09/05/what-is-an-idempotent-function/）。</a></p>
+<p>​	√ 各种一致性模型：强一致性、弱一致性、最终一致性。</p>
+<p>​	√ 备份机制：主从的叫法已经不怎么流行了，当前更酷的叫法是Leader-Follower模式。</p>
+<p>​	√ 共识协议：国内通常翻译成一致性协议（consensus protocol）。学习常见的Paxos和Raft协议。</p>
+</li>
+<li>
+<p>算法和数据结构。</p>
+<p>​	√ LSM：学习其与B+树的区别以及优势是什么。</p>
+<p>​	√ 压缩算法：了解一个主流的压缩算法，比如Snappy、LZ4。另外Facebook最近开源了新一代的压缩算法Zstandard，据说可以完爆一切主流压缩算法。</p>
+<p>​	√ Bloom Filter过滤器：大数据下O(1)的过滤器。</p>
+</li>
+</ul>
+<p>无论是学习大数据工程还是大数据分析，这些理论知识都是必要的，因为它们是设计很多分布式系统必备的技能。下面我们就针对不同的角色设计不同的学习路线。</p>
+<h2 id="大数据工程师"><a class="markdownIt-Anchor" href="#大数据工程师"></a> 大数据工程师</h2>
+<ul>
+<li>
+<p>对于大数据工程师而言，您至少要掌握以下技能：</p>
+<ul>
+<li>一门JVM系语言：当前大数据生态JVM系语言类的比重极大，在某种程度上说是垄断也不为过。这里笔者推荐大家学习Java或Scala，至于Clojure这样的语言上手不易，其实并不推荐大家使用。另外，如今是“母以子贵”的年代，某个大数据框架会带火它的编程语言，比如Docker之于Go、Kafka之于Scala。因此笔者这里建议您至少要精通一门JVM系的语言。值得一提的，一定要弄懂这门语言的多线程模型和内存模型，很多大数据框架的处理模式其实在语言层面与多线程处理模式是类似的，只是大数据框架把它们引申到了多机分布式这个层面。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：学习Java或Scala。</p>
+</blockquote>
+<ul>
+<li>计算处理框架：严格来说，分为离线批处理和流式处理。流式处理是未来的趋势，建议大家一定要学习；而离线批处理其实已经快过时了，它的分批处理思想无法处理无穷数据集，因此适用范围日益缩小。事实上，Google已经在公司内部正式废弃了以MapReduce为代表的离线处理。因此如果要学习大数据工程，掌握一门实时流式处理框架是必需。当下主流的框架包括Apache Samza、Apache Storm、Apache Spark Streaming以及最近一年风头正劲的Apache Flink。当然Apache Kafka也推出了它自己的流式处理框架Kafka Streams。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：学习Flink、Spark Streaming或Kafka Streams中的一种。另外，请熟读Google大神的这篇文章《The world beyond batch: Streaming 101》，地址是https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-101。</p>
+</blockquote>
+<ul>
+<li>分布式存储框架：虽说MapReduce有些过时了，但Hadoop的另一个基石HDFS依然坚挺，并且是开源社区最受欢迎的分布式存储框架，绝对值得您花时间去学习。如果想深入研究的话，Google的GFS论文也是一定要读的 (<a href="https://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf" target="_blank" rel="noopener">https://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf</a>)。当然开源世界中还有很多的分布式存储框架，国内阿里巴巴的OceanBase是其中很优秀的一款。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：学习HDFS。</p>
+</blockquote>
+<ul>
+<li>资源调度框架：Docker可是整整火了最近一两年。各个公司都在发力基于Docker的容器解决方案，最有名的开源容器调度框架就是Kubernetes了，但同样著名的还有Hadoop的YARN和Apache Mesos。后两者不仅可以调度容器集群，还可以调度非容器集群，非常值得我们学习。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：学习YARN。</p>
+</blockquote>
+<ul>
+<li>分布式协调框架：有一些通用的功能在所有主流大数据分布式框架中都需要实现，比如服务发现、领导者选举、分布式锁、KV存储等。这些功能促进了分布式协调框架的发展。最古老也是最有名的当属Apache Zookeeper了，新一些的包括Consul、Etcd等。学习大数据工程，分布式协调框架是不能不了解的，从某种程度上说还应该深入了解。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：学习ZooKeeper——太多大数据框架都需要它，比如Kafka、Storm、HBase等。</p>
+</blockquote>
+<ul>
+<li>KV数据库：典型的就是Memcache和Redis了，特别是Redis简直发展神速。Redis简单的API设计和高性能的TPS日益得到广大用户的青睐。即使不学习大数据，学学Redis都是大有裨益的。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：学习Redis，如果C语言功底好，最好熟读源码，其源码也不是很多。</p>
+</blockquote>
+<ul>
+<li>列式存储数据库：笔者曾经花了很长的时间学习Oracle，但不得不承认当下关系型数据库已经慢慢地淡出了人们的视野，有太多的方案可以替代RDBMS了。人们针对行式存储不适用于大数据Ad-Hoc查询这种弊端开发出列式存储，典型的列式存储数据库就是开源社区的HBase。实际上列式存储的概念也是出自Google的一篇论文《Google BigTable》，大家有兴趣的话最好读一下（<a href="https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf%EF%BC%89%E3%80%82" target="_blank" rel="noopener">https://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf）。</a></li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：学习HBase，这是目前应用最广泛的开源列式存储。</p>
+</blockquote>
+<ul>
+<li>消息队列：大数据工程处理中消息队列作为“削峰填谷”的主力系统是必不可少的，当前该领域内的解决方案有很多，包括ActiveMQ、Kafka等。国内阿里也开源了RocketMQ。这其中的翘楚当属Apache Kafka了。Kafka的很多设计思想都特别契合分布流式数据处理的设计理念。这也难怪，Kafka的原作者Jay Kreps可是当今实时流式处理方面的顶级大神。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：学习Kafka，不仅好找工作(几乎所有大数据招聘简历都要求会Kafka:-）)，还能触类旁通地进一步理解基于备份日志方式的数据处理范型。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="大数据分析师或数据科学家"><a class="markdownIt-Anchor" href="#大数据分析师或数据科学家"></a> 大数据分析师或数据科学家</h2>
+<p>要想成为一名数据科学家，您至少要掌握以下技能：</p>
+<ul>
+<li>数学功底：微积分是必须要掌握的。不一定要掌握多元微积分，但一元微积分是必须要熟练掌握并使用的。另外线性代数一定要精通，特别是矩阵的运算、向量空间、秩等概念。当前机器学习框架中很多计算都需要用到矩阵的乘法、转置或是求逆。虽然很多框架都直接提供了这样的工具，但我们至少要了解内部的原型原理，比如如何高效判断一个矩阵是否存在逆矩阵并如何计算等。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：重温同济版《高等数学》，有条件的可以去Coursea学习宾夕法尼亚大学的微积分课程。推荐学习Strang的线性代数《Introduction to Linear Algebra》——这是最经典的教材，没有之一！</p>
+</blockquote>
+<ul>
+<li>数理统计：概率论和各种统计学方法要做到基本掌握，比如贝叶斯概率如何计算？概率分布是怎么回事？虽不要求精通，但对相关背景和术语一定要了解。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：找一本《概率论》重新学习下。</p>
+</blockquote>
+<ul>
+<li>交互式数据分析框架：这里并不是指SQL或数据库查询，而是像Apache Hive或Apache Kylin这样的分析交互框架。开源社区中有很多类似的框架，可以使用传统的数据分析方式对大数据进行数据分析或数据挖掘。笔者有过使用经验的是Hive和Kylin。不过Hive特别是Hive1是基于MapReduce的，性能并非特别出色，而Kylin采用数据立方体的概念结合星形模型，可以做到极低延时的分析速度，况且Kylin是第一个研发团队主力是中国人的Apache孵化项目，因此日益受到广泛的关注。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：首先学习Hive，有时间的话了解一下Kylin以及背后的数据挖掘思想。</p>
+</blockquote>
+<ul>
+<li>机器学习框架：机器学习当前真是火爆宇宙了，人人都提机器学习和AI，但笔者一直认为机器学习恰似几年前的云计算，目前虽然火爆，但没有实际的落地项目，可能还需要几年的时间才能逐渐成熟。不过现在就开始储备机器学习的知识总是没有坏处的。说到机器学习的框架，大家耳熟能详的有很多种,信手拈来的就有TensorFlow、Caffe8、Keras9、CNTK10、Torch711等，其中又以TensorFlow领衔。</li>
+</ul>
+<blockquote>
+<p><strong>笔者建议</strong>：可以选取一个机器学习框架进行学习，但这些框架大多封装了各种机器学习算法提供给用户使用，因此还是从机器学习算法的原理来学习比较好，比如：Udacity的课程是非常入门级的机器学习课程（https:// <a href="http://classroom.udacity.com/courses/ud120%EF%BC%89%EF%BC%9B%E7%9B%AE%E5%89%8D%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A2%86%E5%9F%9F%E6%9C%80%E7%89%9B%E7%9A%84%E5%85%A5%E9%97%A8%E8%AF%BE%E7%A8%8B%EF%BC%8C%E5%8D%B3%E5%90%B4%E6%81%A9%E8%BE%BE%E5%8D%9A%E5%A3%AB%E7%9A%84Machine" target="_blank" rel="noopener">classroom.udacity.com/courses/ud120）；目前机器学习领域最牛的入门课程，即吴恩达博士的Machine</a> Learning；学习Python的scikit-learn库（<a href="http://scikit-learn.org/stable/%EF%BC%89%EF%BC%9B%E6%89%BE%E4%B8%80%E6%9C%AC%E4%B9%A6%E7%B1%8D%E6%9D%A5%E7%9C%8B%EF%BC%8C%E5%9B%BD%E5%86%85%E6%9C%89%E5%91%A8%E5%BF%97%E5%8D%8E%E7%9A%84%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%EF%BC%8C%E8%BF%98%E5%8F%AF%E4%BB%A5%E6%9C%9F%E5%BE%85%E5%90%B4%E6%81%A9%E8%BE%BE%E7%9A%84%E6%96%B0%E4%B9%A6%E3%80%8AMachine" target="_blank" rel="noopener">http://scikit-learn.org/stable/）；找一本书籍来看，国内有周志华的《机器学习》，还可以期待吴恩达的新书《Machine</a> Learning Yearning》；最后如果觉得掌握得差不多了，可以尝试挑战Kaggle（<a href="https://www.kaggle" target="_blank" rel="noopener">https://www.kaggle</a>. com/）。</p>
+</blockquote>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<p>以上就是我对大数据学习路线的一些思考和建议，希望对读者朋友们有所帮助。</p>
+<p>原文：<a href="https://mp.weixin.qq.com/s/lCBgJjKC117tnTCMsDThiA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/lCBgJjKC117tnTCMsDThiA</a></p>
+<hr />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2020/05/28/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" title="大数据学习路线" target="_blank" rel="external">http://yoursite.com/2020/05/28/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/TaoLiuHK" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/TaoLiuHK" target="_blank"><span class="text-dark">CoffeeCode</span><small class="ml-1x">Web Developer &amp; Designer &amp; BigData</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="lv-container" data-id="city" data-uid="coffee">
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>    
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/05/21/Sqoop-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" title="Sqoop 简单使用"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/TaoLiuHK" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>MongoDB 学习 | CoffeeCode</title>
+  <meta name="description" content="MongoDB 学习  NoSQL简介 NoSQL意指：Not only SQL – 不仅仅是SQL。 现代计算机系统上每天都会产生大量得数据，而这些数据的类型是多种多样的，不像关系型数据库，存储的数据有一定的限制和规则，而非关系型数据库能够存储大部分类型的数据。   关系型数据库遵循ACID原则 事务（Transaction）的四个特性：   A（Atomicity）原子性 原子性很容易理解，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB 学习">
+<meta property="og:url" content="http://yoursite.com/2020/06/21/MongoDB-%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="COFFEECODE">
+<meta property="og:description" content="MongoDB 学习  NoSQL简介 NoSQL意指：Not only SQL – 不仅仅是SQL。 现代计算机系统上每天都会产生大量得数据，而这些数据的类型是多种多样的，不像关系型数据库，存储的数据有一定的限制和规则，而非关系型数据库能够存储大部分类型的数据。   关系型数据库遵循ACID原则 事务（Transaction）的四个特性：   A（Atomicity）原子性 原子性很容易理解，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2013/10/cap-theoram-image.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2013/10/crud-annotated-document.png">
+<meta property="og:image" content="https://i.loli.net/2020/06/21/qaNEkAQKvzfXsol.png">
+<meta property="article:published_time" content="2020-06-21T12:55:06.000Z">
+<meta property="article:modified_time" content="2020-06-21T14:54:22.640Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="MongoDB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2013/10/cap-theoram-image.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2020/06/21/MongoDB-%E5%AD%A6%E4%B9%A0/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="COFFEECODE" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/TaoLiuHK" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">CoffeeCode</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer &amp; BigData</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> ChangShao, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon fa-dashboard"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon fa-delicious"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon fa-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon fa-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon fa-code"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon fa-leanpub"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon fa-gg"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon fa-coffee"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/TaoLiuHK" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BigData/">BigData</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/Shell%E8%84%9A%E6%9C%AC/">Shell脚本</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/">编辑器</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BC%96%E8%BE%91%E5%99%A8/Vim/">Vim</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">网络配置</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typora/">Typora</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Typora/Markdown/">Markdown</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/">MongoDB</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/HBase/">HBase</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/Kafka/">Kafka</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/Sqoop/">Sqoop</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/ZooKeeper/">ZooKeeper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/hadoop/">hadoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/zepplin/">zepplin</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/">SSM</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/Mybatis/">Mybatis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/SSM/Spring/">Spring</a><span class="category-list-count">2</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%B5%E5%BD%B1/">电影</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7/">项目工具</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigData/" rel="tag">BigData</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HBase/" rel="tag">HBase</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liunx/" rel="tag">Liunx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSM/" rel="tag">SSM</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell%E8%84%9A%E6%9C%AC/" rel="tag">Shell脚本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sqoop/" rel="tag">Sqoop</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZooKeeper/" rel="tag">ZooKeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dump/" rel="tag">dump</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restore/" rel="tag">restore</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zepplin/" rel="tag">zepplin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A5%87%E5%B9%BB/" rel="tag">奇幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8A%AF%E7%BD%AA/" rel="tag">犯罪</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%BD%B1/" rel="tag">电影</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" rel="tag">编辑器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" rel="tag">网络配置</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/BigData/" style="font-size: 13px;">BigData</a> <a href="/tags/HBase/" style="font-size: 13.75px;">HBase</a> <a href="/tags/Kafka/" style="font-size: 14px;">Kafka</a> <a href="/tags/LeetCode/" style="font-size: 13px;">LeetCode</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/Liunx/" style="font-size: 13px;">Liunx</a> <a href="/tags/Markdown/" style="font-size: 13px;">Markdown</a> <a href="/tags/MongoDB/" style="font-size: 13px;">MongoDB</a> <a href="/tags/Mybatis/" style="font-size: 13px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 13.5px;">SSM</a> <a href="/tags/Shell%E8%84%9A%E6%9C%AC/" style="font-size: 13px;">Shell脚本</a> <a href="/tags/Spring/" style="font-size: 13.25px;">Spring</a> <a href="/tags/Sqoop/" style="font-size: 13.25px;">Sqoop</a> <a href="/tags/Typora/" style="font-size: 13px;">Typora</a> <a href="/tags/Vim/" style="font-size: 13px;">Vim</a> <a href="/tags/ZooKeeper/" style="font-size: 13px;">ZooKeeper</a> <a href="/tags/dump/" style="font-size: 13px;">dump</a> <a href="/tags/hadoop/" style="font-size: 13px;">hadoop</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/restore/" style="font-size: 13px;">restore</a> <a href="/tags/zepplin/" style="font-size: 13.25px;">zepplin</a> <a href="/tags/%E5%A5%87%E5%B9%BB/" style="font-size: 13px;">奇幻</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 13px;">数据库</a> <a href="/tags/%E7%8A%AF%E7%BD%AA/" style="font-size: 13px;">犯罪</a> <a href="/tags/%E7%94%B5%E5%BD%B1/" style="font-size: 13.5px;">电影</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 13px;">科幻</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13px;">算法</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 13px;">编辑器</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" style="font-size: 13px;">网络配置</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 13px;">虚拟机</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/06/23/Hadoop-API%E5%BC%80%E5%8F%91/" class="title">Hadoop API开发</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-23T12:13:32.000Z" itemprop="datePublished">2020-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/">MongoDB</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/06/21/MongoDB-%E5%AD%A6%E4%B9%A0/" class="title">MongoDB 学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-21T12:55:06.000Z" itemprop="datePublished">2020-06-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Linux/">Linux</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/06/17/Linux-%E6%80%BB%E7%BB%93/" class="title">Linux 总结</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-17T05:19:06.000Z" itemprop="datePublished">2020-06-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/06/04/%E5%AE%98%E6%96%B9-Hbase-MapReduce/" class="title">官方 Hbase - MapReduce</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-04T03:15:59.000Z" itemprop="datePublished">2020-06-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/BigData/">BigData</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/31/Zepplin-%E6%98%BE%E7%A4%BAMysql%E6%95%B0%E6%8D%AE/" class="title">Zepplin Mysql数据可视化</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-31T12:25:45.000Z" itemprop="datePublished">2020-05-31</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-MongoDB-学习" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MongoDB 学习
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/06/21/MongoDB-%E5%AD%A6%E4%B9%A0/" class="article-date">
+	  <time datetime="2020-06-21T12:55:06.000Z" itemprop="datePublished">2020-06-21</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>►<a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/">MongoDB</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/MongoDB/" rel="tag">MongoDB</a>, <a class="article-tag-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/06/21/MongoDB-%E5%AD%A6%E4%B9%A0/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="mongodb-学习"><a class="markdownIt-Anchor" href="#mongodb-学习"></a> MongoDB 学习</h1>
+<h1 id="nosql简介"><a class="markdownIt-Anchor" href="#nosql简介"></a> NoSQL简介</h1>
+<p>NoSQL意指：Not only SQL – 不仅仅是SQL。</p>
+<p>现代计算机系统上每天都会产生大量得数据，而这些数据的类型是多种多样的，不像关系型数据库，存储的数据有一定的限制和规则，而非关系型数据库能够存储大部分类型的数据。</p>
+<hr />
+<h3 id="关系型数据库遵循acid原则"><a class="markdownIt-Anchor" href="#关系型数据库遵循acid原则"></a> 关系型数据库遵循ACID原则</h3>
+<p>事务（Transaction）的四个特性：</p>
+<ol>
+<li>
+<p>A（Atomicity）原子性</p>
+<p>原子性很容易理解，也就是说事务里的所有操作要么全部做完，要么都不做，事务成功的条件是事务里的所有操作都成功，只要有一个操作失败，整个事务就失败，需要回滚。</p>
+<p>比如银行转账，从A账户转100元至B账户，分为两个步骤：1）从A账户取100元；2）存入100元至B账户。这两步要么一起完成，要么一起不完成，如果只完成第一步，第二步失败，钱会莫名其妙少了100元。</p>
+</li>
+<li>
+<p>C（Consistency）一致性</p>
+<p>一致性也比较容易理解，也就是说数据库要一直处于一致的状态，事务的运行不会改变数据库原本的一致性约束。</p>
+<p>例如现有完整性约束a+b=10，如果一个事务改变了a，那么必须得改变b，使得事务结束后依然满足a+b=10，否则事务失败。</p>
+</li>
+<li>
+<p>I（Isolation）独立性</p>
+<p>所谓的独立性是指并发的事务之间不会互相影响，如果一个事务要访问的数据正在被另外一个事务修改，只要另外一个事务未提交，它所访问的数据就不受未提交事务的影响。</p>
+<p>比如现在有个交易是从A账户转100元至B账户，在这个交易还未完成的情况下，如果此时B查询自己的账户，是看不到新增加的100元的。</p>
+</li>
+<li>
+<p>D（Durablility）持久性</p>
+<p>持久性是指一旦事务提交后，它所做的修改将会永久的保存在数据库上，即使出现宕机也不会丢失。</p>
+</li>
+</ol>
+<hr />
+<h3 id="分布式系统"><a class="markdownIt-Anchor" href="#分布式系统"></a> 分布式系统</h3>
+<p>分布式系统（distributed system）由多台计算机和通信的软件组件通过计算机网络连接（本地网络或广域网）组成。</p>
+<p>分布式系统是建立在网络之上的软件系统。正是因为软件的特性，所以分布式系统具有高度的内聚性和透明性。</p>
+<p>因此，网络和分布式系统之间的区别更多的在于高层软件（特别是操作系统），而不是硬件。</p>
+<p>分布式系统可以应用在不同的平台上如：Pc、工作站、局域网和广域网上等。</p>
+<hr />
+<h3 id="分布式计算的优点"><a class="markdownIt-Anchor" href="#分布式计算的优点"></a> 分布式计算的优点</h3>
+<p>可靠性、可扩展性、资源共享、灵活性、更快的速度、开放系统、更高的性能。</p>
+<hr />
+<h3 id="分布式的缺点"><a class="markdownIt-Anchor" href="#分布式的缺点"></a> 分布式的缺点</h3>
+<p><strong>故障排除：</strong></p>
+<p>故障排除和诊断问题。</p>
+<p><strong>软件：</strong></p>
+<p>更少的软件支持是分布式计算系统的主要缺点。</p>
+<p><strong>网络：</strong></p>
+<p>网络基础设施的问题，包括：传输问题，高负载，信息丢失等。</p>
+<p><strong>安全性：</strong></p>
+<p>开放系统的特性让分布式计算系统存在着数据的安全性和共享的风险等问题。</p>
+<hr />
+<h2 id="什么是nosql"><a class="markdownIt-Anchor" href="#什么是nosql"></a> 什么是NoSQL？</h2>
+<p>NoSQL指的是非关系型数据库。</p>
+<p>NoSQL用于超大规模数据的存储。（例如谷歌或Facebook每天为他们的用户收集万亿比特的数据）。这些类型的数据存储不需要固定的模式，无需多余操作就可以横向扩展。</p>
+<hr />
+<h3 id="为什么使用nosql"><a class="markdownIt-Anchor" href="#为什么使用nosql"></a> 为什么使用NoSQL？</h3>
+<p>NoSQL存储的数据量更大、存储的类型更多。</p>
+<p>适合用户进行数据挖掘和进行数据分析。</p>
+<hr />
+<h3 id="rdbms-vs-nosql"><a class="markdownIt-Anchor" href="#rdbms-vs-nosql"></a> RDBMS vs NoSQL</h3>
+<p><strong>RDBMS</strong><br />
+- 高度组织化结构化数据<br />
+- 结构化查询语言（SQL） (SQL)<br />
+- 数据和关系都存储在单独的表中。<br />
+- 数据操纵语言，数据定义语言<br />
+- 严格的一致性<br />
+- 基础事务</p>
+<p><strong>NoSQL</strong><br />
+- 代表着不仅仅是SQL<br />
+- 没有声明性查询语言<br />
+- 没有预定义的模式<br />
+-键 - 值对存储，列存储，文档存储，图形数据库<br />
+- 最终一致性，而非ACID属性<br />
+- 非结构化和不可预知的数据<br />
+- CAP定理<br />
+- 高性能，高可用性和可伸缩性</p>
+<hr />
+<h3 id="cap定理"><a class="markdownIt-Anchor" href="#cap定理"></a> CAP定理</h3>
+<p>在计算机科学中, CAP定理（CAP theorem）, 又被称作 布鲁尔定理（Brewer’s theorem）, 它指出对于一个分布式计算系统来说，不可能同时满足以下三点:</p>
+<ul>
+<li><strong>一致性(Consistency)</strong> (所有节点在同一时间具有相同的数据)</li>
+<li><strong>可用性(Availability)</strong> (保证每个请求不管成功或者失败都有响应)</li>
+<li><strong>分隔容忍(Partition tolerance)</strong> (系统中任意信息的丢失或失败不会影响系统的继续运作)</li>
+</ul>
+<p>CAP理论的核心是：一个分布式系统不可能同时很好的满足一致性，可用性和分区容错性这三个需求，最多只能同时较好的满足两个。</p>
+<p>因此，根据 CAP 原理将 NoSQL 数据库分成了满足 CA 原则、满足 CP 原则和满足 AP 原则三 大类：</p>
+<ul>
+<li>CA - 单点集群，满足一致性，可用性的系统，通常在可扩展性上不太强大。</li>
+<li>CP - 满足一致性，分区容忍性的系统，通常性能不是特别高。</li>
+<li>AP - 满足可用性，分区容忍性的系统，通常可能对一致性要求低一些。</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/10/cap-theoram-image.png" alt="img" /></p>
+<hr />
+<h3 id="nosql的优缺点"><a class="markdownIt-Anchor" href="#nosql的优缺点"></a> NoSQL的优缺点</h3>
+<p>优点:</p>
+<ul>
+<li>- 高可扩展性</li>
+<li>- 分布式计算</li>
+<li>- 低成本</li>
+<li>- 架构的灵活性，半结构化数据</li>
+<li>- 没有复杂的关系</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>- 没有标准化</li>
+<li>- 有限的查询功能（到目前为止）</li>
+<li>- 最终一致是不直观的程序</li>
+</ul>
+<hr />
+<h3 id="base"><a class="markdownIt-Anchor" href="#base"></a> BASE</h3>
+<p>BASE：Basically Available, Soft-state, Eventually Consistent。 由 Eric Brewer 定义。</p>
+<p>CAP理论的核心是：一个分布式系统不可能同时很好的满足一致性，可用性和分区容错性这三个需求，最多只能同时较好的满足两个。</p>
+<p>BASE是NoSQL数据库通常对可用性及一致性的弱要求原则:</p>
+<ul>
+<li>Basically Availble --基本可用</li>
+<li>Soft-state --软状态/柔性事务。 “Soft state” 可以理解为&quot;无连接&quot;的, 而 “Hard state” 是&quot;面向连接&quot;的</li>
+<li>Eventual Consistency – 最终一致性， 也是是 ACID 的最终目的</li>
+</ul>
+<hr />
+<h3 id="acid-vs-base"><a class="markdownIt-Anchor" href="#acid-vs-base"></a> ACID vs BASE</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">CID</th>
+<th style="text-align:left">BASE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">原子性(<strong>A</strong>tomicity)</td>
+<td style="text-align:left">基本可用(<strong>B</strong>asically <strong>A</strong>vailable)</td>
+</tr>
+<tr>
+<td style="text-align:left">一致性(<strong>C</strong>onsistency)</td>
+<td style="text-align:left">软状态/柔性事务(<strong>S</strong>oft state)</td>
+</tr>
+<tr>
+<td style="text-align:left">隔离性(<strong>I</strong>solation)</td>
+<td style="text-align:left">最终一致性 (<strong>E</strong>ventual consistency)</td>
+</tr>
+<tr>
+<td style="text-align:left">持久性 (<strong>D</strong>urable)</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="nosql数据库分类"><a class="markdownIt-Anchor" href="#nosql数据库分类"></a> NoSQL数据库分类</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>部分代表</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>列存储</td>
+<td>Hbase、Cassandra 、Hypertable</td>
+<td>顾名思义，是按列存储数据的。最大的特点是方便存储结构化和半结构化数据，方便做数据压缩，对针对某一列或者某几列的查询有非常大的IO优势。</td>
+</tr>
+<tr>
+<td>文档存储</td>
+<td>MongoDB、CouchDB</td>
+<td>文档存储一般用类似json的格式存储，存储的内容是文档型的。这样也就有机会对某些字段建立索引，实现关系数据库的某些功能。</td>
+</tr>
+<tr>
+<td>key-value存储</td>
+<td>Tokyo Cabinet / TyrantBerkeley DB、MemcacheDB、Redis</td>
+<td>可以通过key快速查询到其value。一般来说，存储不管value的格式，照单全收。（Redis包含了其他功能）</td>
+</tr>
+<tr>
+<td>图存储</td>
+<td>Neo4J、FlockDB</td>
+<td>图形关系的最佳存储。使用传统关系数据库来解决的话性能低下，而且设计使用不方便。</td>
+</tr>
+<tr>
+<td>对象存储</td>
+<td>db4o、Versant</td>
+<td>通过类似面向对象语言的语法操作数据库，通过对象的方式存取数据。</td>
+</tr>
+<tr>
+<td>xml数据库</td>
+<td>Berkeley DB 、XML、BaseX</td>
+<td>高效的存储XML数据，并支持XML的内部查询语法，比如XQuery,Xpath。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="mongodb简介"><a class="markdownIt-Anchor" href="#mongodb简介"></a> MongoDB简介</h2>
+<h3 id="什么是mongodb"><a class="markdownIt-Anchor" href="#什么是mongodb"></a> 什么是MongoDB ?</h3>
+<p>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。</p>
+<p>在高负载的情况下，添加更多的节点，可以保证服务器性能。</p>
+<p>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。</p>
+<p>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2013/10/crud-annotated-document.png" alt="img" /></p>
+<hr />
+<h3 id="主要特点"><a class="markdownIt-Anchor" href="#主要特点"></a> 主要特点</h3>
+<ul>
+<li>MongoDB 是一个面向文档存储的数据库，操作起来比较简单和容易。</li>
+<li>你可以在MongoDB记录中设置任何属性的索引 (如：FirstName=“Sameer”,Address=“8 Gandhi Road”)来实现更快的排序。</li>
+<li>你可以通过本地或者网络创建数据镜像，这使得MongoDB有更强的扩展性。</li>
+<li>如果负载的增加（需要更多的存储空间和更强的处理能力） ，它可以分布在计算机网络中的其他节点上这就是所谓的分片。</li>
+<li>Mongo支持丰富的查询表达式。查询指令使用JSON形式的标记，可轻易查询文档中内嵌的对象及数组。</li>
+<li>MongoDb 使用update()命令可以实现替换完成的文档（数据）或者一些指定的数据字段 。</li>
+<li>Mongodb中的Map/reduce主要是用来对数据进行批量处理和聚合操作。</li>
+<li>Map和Reduce。Map函数调用emit(key,value)遍历集合中所有的记录，将key与value传给Reduce函数进行处理。</li>
+<li>Map函数和Reduce函数是使用Javascript编写的，并可以通过db.runCommand或mapreduce命令来执行MapReduce操作。</li>
+<li>GridFS是MongoDB中的一个内置功能，可以用于存放大量小文件。</li>
+<li>MongoDB允许在服务端执行脚本，可以用Javascript编写某个函数，直接在服务端执行，也可以把函数的定义存储在服务端，下次直接调用即可。</li>
+<li>MongoDB支持各种编程语言:RUBY，PYTHON，JAVA，C++，PHP，C#等多种语言。</li>
+<li>MongoDB安装简单。</li>
+</ul>
+<hr />
+<h2 id="mongodb-下载"><a class="markdownIt-Anchor" href="#mongodb-下载"></a> MongoDB 下载</h2>
+<p>你可以在mongodb官网下载该安装包，地址为：<a href="https://www.mongodb.com/download-center#community" target="_blank" rel="noopener">https://www.mongodb.com/download-center#community</a></p>
+<hr />
+<h3 id="mongodb-工具"><a class="markdownIt-Anchor" href="#mongodb-工具"></a> MongoDB 工具</h3>
+<p>有几种可用于MongoDB的管理工具。</p>
+<h4 id="监控"><a class="markdownIt-Anchor" href="#监控"></a> 监控</h4>
+<p>MongoDB提供了网络和系统监控工具Munin，它作为一个插件应用于MongoDB中。</p>
+<p>Gangila是MongoDB高性能的系统监视的工具，它作为一个插件应用于MongoDB中。</p>
+<p>基于图形界面的开源工具 Cacti, 用于查看CPU负载, 网络带宽利用率,它也提供了一个应用于监控 MongoDB 的插件。</p>
+<h4 id="gui"><a class="markdownIt-Anchor" href="#gui"></a> GUI</h4>
+<ul>
+<li>Fang of Mongo – 网页式,由Django和jQuery所构成。</li>
+<li>Futon4Mongo – 一个CouchDB Futon web的mongodb山寨版。</li>
+<li>Mongo3 – Ruby写成。</li>
+<li>MongoHub – 适用于OSX的应用程序。</li>
+<li>Opricot – 一个基于浏览器的MongoDB控制台, 由PHP撰写而成。</li>
+<li>Database Master — Windows的mongodb管理工具</li>
+<li>RockMongo — 最好的PHP语言的MongoDB管理工具，轻量级, 支持多国语言.</li>
+</ul>
+<hr />
+<h2 id="linux平台安装mongodb"><a class="markdownIt-Anchor" href="#linux平台安装mongodb"></a> Linux平台安装MongoDB</h2>
+<p>MongoDB 提供了 linux 各发行版本 64 位的安装包，你可以在官网下载安装包。</p>
+<p>下载地址：<a href="https://www.mongodb.com/download-center#community" target="_blank" rel="noopener">https://www.mongodb.com/download-center#community</a></p>
+<p><img src="https://i.loli.net/2020/06/21/qaNEkAQKvzfXsol.png" alt="image-20200621213349460" /></p>
+<p>下载完安装包，并解压 <strong>tgz</strong>（以下演示的是 64 位 Linux上的安装） 。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mongodb-linux-x86_64-rhel70-4.2.8.tgz -C /opt/module/		<span class="comment"># 解压</span></span><br><span class="line">mv mongodb-linux-x86_64-rhel70-4.2.8 mongodb-4.2.8		<span class="comment">#重命名</span></span><br></pre></td></tr></table></figure>
+<p>MongoDB 的可执行文件位于 bin 目录下，所以可以将其添加到 <strong>PATH</strong> 路径中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=&lt;mongodb-install-directory&gt;/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p><strong><mongodb-install-directory></strong> 为你 MongoDB 的安装路径。如本文的 <strong>/usr/local/mongodb</strong> 。</p>
+<hr />
+<h3 id="创建数据库目录"><a class="markdownIt-Anchor" href="#创建数据库目录"></a> 创建数据库目录</h3>
+<p>MongoDB的数据存储在data目录的db目录下，但是这个目录在安装过程不会自动创建，所以你需要手动创建data目录，并在data目录中创建db目录。</p>
+<p>以下实例中我们将data目录创建于根目录下(/)。</p>
+<p>注意：/data/db 是 MongoDB 默认的启动的数据库路径(–dbpath)。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/db</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="配置conf与目录"><a class="markdownIt-Anchor" href="#配置conf与目录"></a> 配置conf与目录</h3>
+<ol>
+<li>
+<p><strong>进入 mongodb-4.2.8/</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> mongodb-4.2.8/</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>创建db目录和日志文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop141 mongodb-4.2.8]<span class="comment"># mkdir -p data/db</span></span><br><span class="line">[root@hadoop141 mongodb-4.2.8]<span class="comment"># mkdir -p logs</span></span><br><span class="line">[root@hadoop141 mongodb-4.2.8]<span class="comment"># touch logs/mongodb.log</span></span><br><span class="line">[root@hadoop141 mongodb-4.2.8]<span class="comment"># ll</span></span><br><span class="line">总用量 324</span><br><span class="line">drwxr-xr-x 2 root root   4096 6月  21 21:43 bin</span><br><span class="line">drwxr-xr-x 3 root root   4096 6月  21 21:52 data</span><br><span class="line">-rw-r--r-- 1 root root  30608 6月  12 00:31 LICENSE-Community.txt</span><br><span class="line">drwxr-xr-x 2 root root   4096 6月  21 21:53 logs</span><br><span class="line">-rw-r--r-- 1 root root  16726 6月  12 00:31 MPL-2</span><br><span class="line">-rw-r--r-- 1 root root   2617 6月  12 00:31 README</span><br><span class="line">-rw-r--r-- 1 root root  75405 6月  12 00:31 THIRD-PARTY-NOTICES</span><br><span class="line">-rw-r--r-- 1 root root 183512 6月  12 00:32 THIRD-PARTY-NOTICES.gotools</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>创建 mongodb.conf文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#端口号</span></span><br><span class="line">port=27017</span><br><span class="line"><span class="comment">#db目录</span></span><br><span class="line">dbpath=/opt/module/mongodb-4.2.8/data/db</span><br><span class="line"><span class="comment">#日志目录</span></span><br><span class="line">logpath=/opt/module/mongodb-4.2.8/logs/mongodb.log</span><br><span class="line"><span class="comment">#后台</span></span><br><span class="line">fork=<span class="literal">true</span></span><br><span class="line"><span class="comment">#日志输出</span></span><br><span class="line">logappend=<span class="literal">true</span></span><br><span class="line"><span class="comment">#允许远程IP连接</span></span><br><span class="line">bind_ip=0.0.0.0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启动测试</p>
+</li>
+<li></li>
+</ol>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2020/06/21/MongoDB-%E5%AD%A6%E4%B9%A0/" title="MongoDB 学习" target="_blank" rel="external">http://yoursite.com/2020/06/21/MongoDB-%E5%AD%A6%E4%B9%A0/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/TaoLiuHK" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/TaoLiuHK" target="_blank"><span class="text-dark">CoffeeCode</span><small class="ml-1x">Web Developer &amp; Designer &amp; BigData</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="lv-container" data-id="city" data-uid="coffee">
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>    
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/06/23/Hadoop-API%E5%BC%80%E5%8F%91/" title="Hadoop API开发"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/06/17/Linux-%E6%80%BB%E7%BB%93/" title="Linux 总结"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/TaoLiuHK" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
